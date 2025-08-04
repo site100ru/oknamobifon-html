@@ -297,7 +297,7 @@
 	align-items: center;
 	width: 100%;
 	padding: var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x);
-	font-size: clamp(1rem, 0.909rem + 0.45vw, 1.25rem);
+	font-size: 1rem;
 	font-weight: 700;
 	color: var(--bs-accordion-btn-color);
 	text-align: left;
