@@ -2,6 +2,12 @@
 	list-style-type: square;
 }
 
+.section-hero__title-hero {
+	font-family: GT, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans',
+		'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+		'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
 .section-profile,
 .section-windows-standard-price {
 	padding-top: 40px;
@@ -25,15 +31,15 @@
 }
 
 .price-item {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .price-item__dots {
-    flex: 1;
-    border-bottom: 2px dotted #ccc;
-    margin: 0 10px;
-    height: 1px;
+	flex: 1;
+	border-bottom: 2px dotted #ccc;
+	margin: 0 10px;
+	height: 1px;
 }
 
 .section-glazing .row {
@@ -125,10 +131,10 @@
 }
 @media screen and (max-width: 540px) {
 	.recalc_smeta {
-		height: 385px;
+		height: 365px;
 		margin: 0 auto;
 		text-align: center;
-		width: 280px;
+		width: 100%;
 	}
 }
 
