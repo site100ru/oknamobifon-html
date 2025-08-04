@@ -8,6 +8,10 @@
 	padding-bottom: 40px;
 }
 
+.section-windows-title span {
+	color: #1b75bb;
+}
+
 .section-profile .card {
 	display: flex;
 	flex-direction: column;
@@ -20,29 +24,16 @@
 	font-weight: 600;
 }
 
-.flag {
-	margin: 0.5em;
-	border: 1em solid rgb(var(--oknamobifon-link-color-rgb));
-	border-right-color: transparent;
-	border-left-color: transparent;
-	max-width: 200px;
+.price-item {
+    display: flex;
+    align-items: center;
 }
 
-.card-discount-price {
-	font-family: HelveticaNeueCyr-Roman;
-	background-color: transparent;
-	color: #ffff;
-	font-size: 18px;
-	font-weight: 600;
-	position: absolute;
-	padding-left: 16px;
-	margin-top: -16px;
-}
-
-.card-price span {
-	color: rgb(var(--oknamobifon-link-color-rgb));
-	font-size: 22px;
-	font-weight: 600;
+.price-item__dots {
+    flex: 1;
+    border-bottom: 2px dotted #ccc;
+    margin: 0 10px;
+    height: 1px;
 }
 
 .section-glazing .row {
@@ -251,44 +242,125 @@
 	padding: 0;
 	z-index: 10;
 }
-
 /*
 ******************************************
 Аккардион
 ******************************************
 */
-/*** ACCORDION ***/
+
+/* Базовый контейнер аккордеона */
+.accordion {
+	--bs-accordion-color: #212529;
+	--bs-accordion-bg: #fff;
+	--bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+		border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+	--bs-accordion-border-color: #dee2e6;
+	--bs-accordion-border-width: 1px;
+	--bs-accordion-border-radius: 5px;
+	--bs-accordion-inner-border-radius: calc(5px - 1px);
+	--bs-accordion-btn-padding-x: 1.25rem;
+	--bs-accordion-btn-padding-y: 1rem;
+	--bs-accordion-btn-color: var(--dark-color, #212529);
+	--bs-accordion-btn-bg: #e6e6e6;
+	--bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+		border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+}
+
+/* Элемент аккордеона */
 .accordion-item {
-	border-radius: 5px;
-	background: #e6e6e6;
+	color: var(--bs-accordion-color);
+	background-color: var(--bs-accordion-bg);
+	border: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+	border-radius: var(--bs-accordion-border-radius);
+	margin-bottom: 1rem; /* Для отступов между элементами */
 }
 
+.accordion-item:first-of-type {
+	border-top-left-radius: var(--bs-accordion-border-radius);
+	border-top-right-radius: var(--bs-accordion-border-radius);
+}
+
+.accordion-item:last-of-type {
+	border-bottom-right-radius: var(--bs-accordion-border-radius);
+	border-bottom-left-radius: var(--bs-accordion-border-radius);
+}
+
+/* Заголовок аккордеона */
+.accordion-header {
+	margin-bottom: 0;
+}
+
+/* Кнопка аккордеона */
 .accordion-button {
-	font-weight: 700;
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x);
 	font-size: clamp(1rem, 0.909rem + 0.45vw, 1.25rem);
-	background-color: #e6e6e6;
-	border-radius: 5px;
-	color: var(--dark-color);
+	font-weight: 700;
+	color: var(--bs-accordion-btn-color);
+	text-align: left;
+	background-color: var(--bs-accordion-btn-bg);
+	border: 0;
+	border-top-left-radius: var(--bs-accordion-border-radius);
+	border-top-right-radius: var(--bs-accordion-border-radius);
+	overflow-anchor: none;
+	transition: var(--bs-accordion-transition);
 }
 
-.accordion-button:not(.collapsed) {
-	--bs-accordion-active-color: var(--dark-color);
-	background-color: #e6e6e6;
-	box-shadow: none;
+/* Стрелка аккордеона */
+.accordion-button::after {
+	flex-shrink: 0;
+	width: 1.25rem;
+	height: 1.25rem;
+	margin-left: auto;
+	content: '';
+	background-image: url(../img/icons/accordion-arrow.svg);
+	background-repeat: no-repeat;
+	background-size: 1.25rem;
+	background-position: center;
 	border-radius: 5px;
+	transition: transform 0.2s ease-in-out;
 }
 
+/* Ховер эффект */
+.accordion-button:hover {
+	z-index: 2;
+	color: var(--bs-accordion-btn-color);
+	background-color: var(--bs-accordion-btn-bg);
+	border-color: var(--bs-accordion-border-color);
+}
+
+/* Фокус */
 .accordion-button:focus {
 	z-index: 3;
-	outline: 0;
 	border-color: transparent;
-	border-radius: 5px;
+	outline: 0;
 	box-shadow: none;
 }
 
+/* Активное состояние (развернутый элемент) */
+.accordion-button:not(.collapsed) {
+	color: var(--bs-accordion-btn-color);
+	background-color: var(--bs-accordion-btn-bg);
+	box-shadow: none;
+}
+
+/* Поворот стрелки для развернутого состояния */
+.accordion-button:not(.collapsed)::after {
+	transform: rotate(180deg);
+}
+
+/* Контейнер контента */
+.accordion-collapse {
+	border-top: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+}
+
+/* Тело аккордеона */
 .accordion-body {
-	padding: 1rem 1.25rem;
-	padding-top: 0px;
+	padding: var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x);
+	padding-top: 0;
 }
 
 .accordion-body p {
@@ -296,13 +368,26 @@
 	font-weight: 300;
 	font-size: clamp(1rem, 0.909rem + 0.45vw, 1.25rem);
 	line-height: 1.35;
+	margin-bottom: 0.5rem;
 }
 
-.accordion-button::after,
-.accordion-button:not(.collapsed)::after {
-	background-image: url(../img/ico/chevron-down.svg);
-	background-position: center;
-	border-radius: 5px;
+.accordion-body:last-child p {
+	margin-bottom: 0;
+}
+
+/* Анимация разворачивания */
+.accordion-collapse.collapse:not(.show) {
+	display: none;
+}
+
+.accordion-collapse.collapse.show {
+	display: block;
+}
+
+.accordion-collapse.collapsing {
+	height: 0;
+	overflow: hidden;
+	transition: height 0.35s ease;
 }
 
 /*
@@ -343,6 +428,10 @@
 
 .tile-advantage__col3 .tile-advantage__item-s2 {
 	width: calc(50% - 28px);
+}
+
+.tile-advantage__item:nth-child(5) {
+	order: 5;
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -512,15 +601,712 @@
 }
 
 .section-cta__container {
-  border-radius: 9px;
-  padding-block: 40px;
-  background: linear-gradient(to top right, #cfe2ff, #e2d9f3);
+	border-radius: 9px;
+	padding-block: 40px;
+	background: linear-gradient(to top right, #cfe2ff, #e2d9f3);
 }
 
-.form {
-	background: white;
-	border-radius: 12px;
-	padding: 30px;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+/*
+******************************************
+Блок с соцсетями в углу
+******************************************
+*/
+/*** CALLBACK BUTTON ***/
+
+/*** CALLBACK BUTTON ***/
+.callback-button-wrapper {
+	position: fixed;
+	bottom: 100px;
+	right: 25px;
+	z-index: 999;
+}
+
+.callback-button {
+	width: 70px;
+	height: 70px;
+	background: #1b75bb;
+	border-radius: 50%;
+	animation: waves linear 2s infinite;
+	-webkit-animation: waves linear 2s infinite;
+	transition: 0.25s;
+	cursor: pointer;
+	padding-top: 15px;
+	padding-left: 15px;
 	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+
+@keyframes waves {
+	0% {
+		box-shadow: 0 0 0 0 rgba(27, 117, 187, 0.3),
+			0 0 0 0 rgba(27, 117, 187, 0.3) 0 0 8px 0 rgba(0, 0, 0, 0.5);
+	}
+	50% {
+		box-shadow: 0 0 0 0 rgba(27, 117, 187, 0.15), 0 0 0 15px rgba(27, 117, 187, 0.15),
+			0 0 8px 0 rgba(0, 0, 0, 0.5);
+	}
+	100% {
+		box-shadow: 0 0 0 20px rgba(27, 117, 187, 0), 0 0 0 30px rgba(27, 117, 187, 0),
+			0 0 8px 0 rgba(0, 0, 0, 0.5);
+	}
+}
+
+.callback-button:hover {
+	background: #6f42c1;
+}
+
+.callback-button-ico {
+	width: 40px;
+	height: 40px;
+	filter: invert();
+	animation: change linear 16s infinite;
+	-webkit-animation: change linear 16s infinite;
+	-webkit-transition: transform 1s ease-in-out;
+	transition: transform 1s ease-in-out;
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+@keyframes change {
+	0% {
+		background-image: url(../img/icons/callback-button-ico.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+		opacity: 0;
+	}
+	1% {
+		background-image: url(../img/icons/callback-button-ico.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		-webkit-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+		opacity: 1;
+	}
+	24% {
+		background-image: url(../img/icons/callback-button-ico.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		-webkit-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+		opacity: 1;
+	}
+	25% {
+		background-image: url(../img/icons/callback-button-ico.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		opacity: 0;
+	}
+	26% {
+		background-image: url(../img/icons/callback-phone-ico.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		opacity: 0;
+	}
+	27% {
+		background-image: url(../img/icons/callback-phone-ico.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		opacity: 1;
+	}
+	49% {
+		background-image: url(../img/icons/callback-phone-ico.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		opacity: 1;
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+	50% {
+		background-image: url(../img/icons/callback-phone-ico.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		opacity: 0;
+	}
+	51% {
+		background-image: url(../img/icons/callback-whatsapp-ico.svg);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		transform: rotate(0deg);
+		opacity: 0;
+	}
+	52% {
+		background-image: url(../img/icons/callback-whatsapp-ico.svg);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		opacity: 1;
+		transform: rotate(360deg);
+	}
+	74% {
+		background-image: url(../img/icons/callback-whatsapp-ico.svg);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		opacity: 1;
+		transform: rotate(360deg);
+	}
+	75% {
+		background-image: url(../img/icons/callback-whatsapp-ico.svg);
+		background-position: center;
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		opacity: 0;
+	}
+	76% {
+		background-image: url(../img/icons/callback-telegram-ico.svg);
+		background-position: center;
+		background-repeat: no-repeat;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		opacity: 0;
+	}
+	77% {
+		background-image: url(../img/icons/callback-telegram-ico.svg);
+		background-position: center;
+		background-repeat: no-repeat;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+		opacity: 1;
+	}
+	99% {
+		background-image: url(../img/icons/callback-telegram-ico.svg);
+		background-position: center;
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+		opacity: 1;
+	}
+	100% {
+		background-image: url(../img/icons/callback-telegram-ico.svg);
+		background-position: center;
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		opacity: 0;
+	}
+}
+
+@keyframes change2 {
+	0% {
+		background-image: url(../img/icons/callback-button-close.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		transform: rotate(0deg);
+		opacity: 0;
+	}
+	50% {
+		background-image: url(../img/icons/callback-button-close.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		-o-background-size: cover;
+		transform: rotate(180deg);
+		opacity: 1;
+	}
+}
+
+.callback-form-button {
+	width: 50px;
+	height: 50px;
+	background: #1b75bb;
+	border-radius: 50%;
+	cursor: pointer;
+	padding-top: 10px;
+	padding-left: 10px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	z-index: 1;
+	transition: 0.25s;
+}
+
+.callback-form-button:hover {
+	background: #6f42c1;
+}
+
+.callback-form-button-ico {
+	width: 30px;
+	height: 30px;
+	filter: invert();
+	background: url(../img/icons/callback-phone-button-ico.svg) center no-repeat;
+	background-size: contain;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	-o-background-size: contain;
+}
+
+.callback-phone-button {
+	width: 50px;
+	height: 50px;
+	background: #1b75bb;
+	border-radius: 50%;
+	cursor: pointer;
+	padding-top: 10px;
+	padding-left: 10px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	z-index: 1;
+	transition: 0.25s;
+}
+
+.callback-phone-button:hover {
+	background: #6f42c1;
+}
+
+.callback-phone-button-ico {
+	width: 30px;
+	height: 30px;
+	filter: invert();
+	background: url(../img/icons/callback-phone-ico.svg) center no-repeat;
+	background-size: contain;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	-o-background-size: contain;
+}
+
+.callback-whatsapp-button {
+	width: 50px;
+	height: 50px;
+	background: #1b75bb;
+	border-radius: 50%;
+	cursor: pointer;
+	padding-top: 10px;
+	padding-left: 10px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	z-index: 1;
+	transition: 0.25s;
+}
+
+.callback-whatsapp-button:hover {
+	background: #6f42c1;
+}
+
+.callback-whatsapp-button-ico {
+	width: 30px;
+	height: 30px;
+	filter: invert();
+	background: url(../img/icons/callback-whatsapp-ico.svg) center no-repeat;
+	background-size: contain;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	-o-background-size: contain;
+}
+
+.callback-telegram-button {
+	width: 50px;
+	height: 50px;
+	background: #1b75bb;
+	border-radius: 50%;
+	cursor: pointer;
+	padding-top: 10px;
+	padding-left: 10px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	z-index: 1;
+	transition: 0.25s;
+}
+
+.callback-telegram-button:hover {
+	background: #6f42c1;
+}
+
+.callback-telegram-button-ico {
+	width: 30px;
+	height: 30px;
+	filter: invert();
+	background: url(../img/icons/callback-telegram-ico.svg) center no-repeat;
+	background-size: contain;
+	-moz-background-size: contain;
+	-webkit-background-size: contain;
+	-o-background-size: contain;
+}
+/*** CALLBACK BUTTON ***/
+
+.form-horizontal {
+	display: flex;
+	gap: 30px;
+}
+/*** 
+***/
+.section-advantages.advantages {
+	padding-block: 40px;
+}
+
+/* Ð¨Ñ€Ð¸Ñ„Ñ‚ Ð²Ð¾Ð¿Ñ€Ð¾ÑÐ° */
+.quiz-section-h3 {
+	font-family: Gilroy-Semibold;
+	font-size: 20px;
+	letter-spacing: -0.75px;
+}
+
+.quiz-section-h3 span {
+	font-family: Gilroy-Light;
+	font-size: 18px;
+	display: block;
+	color: #000000;
+}
+
+.container .option_item {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+
+.container .option_item .checkbox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	opacity: 0;
+}
+
+.option_item .option_inner {
+	width: 100%;
+	height: auto;
+	/* background: #fff;
+	border-radius: 5px; */
+	overflow: hidden;
+	text-align: center;
+	cursor: pointer;
+	color: #585c68;
+	display: block;
+	/*border: 5px solid transparent;*/
+	position: relative;
+}
+
+/* Ð˜ÐºÐ¾Ð½ÐºÐ° Ð³Ð°Ð»Ð¾Ñ‡ÐºÐ¸ */
+.shadow-wrapper {
+	background-image: url(../img/quiz/ico/checked.svg);
+	background-color: rgba(0, 0, 0, 0.5);
+	background-position: center;
+	background-repeat: no-repeat;
+	position: absolute;
+	padding: 15px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+}
+
+.checkbox:checked ~ .option_inner .shadow-wrapper {
+	opacity: 50;
+}
+
+/* Question image border */
+.shadow-wrapper-decoration {
+	width: 100%;
+	height: 100%;
+	border: 1px solid rgba(255, 255, 255, 0.75);
+	/* border-radius: 5px; */
+}
+
+.shadow-wrapper-box {
+	background-image: url(../img/quiz/ico/checkbox-checked.svg);
+	background-position: left;
+	background-repeat: no-repeat;
+	position: absolute;
+	padding: 15px;
+	top: 0;
+	bottom: 0;
+	left: 10px;
+	right: 0;
+	opacity: 0;
+}
+
+.checkbox:checked ~ .option_inner .shadow-wrapper-box {
+	opacity: 1;
+}
+
+/* Input file */
+.custom-file-button input[type='file'] {
+	/* margin-left: -2px; */
+	color: #191919;
+	font-family: HelveticaNeueCyr-Light;
+	font-size: 18px;
+	font-size: 18px;
+}
+
+.custom-file-button input[type='file']::-webkit-file-upload-button {
+	display: none;
+}
+
+.custom-file-button input[type='file']::file-selector-button {
+	display: none;
+}
+
+.custom-file-button:hover label {
+	background-color: var(--corporate-color-hover-1);
+	cursor: pointer;
+}
+
+.custom-file-button .form-control {
+	border: none;
+}
+
+.input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: none;
+}
+
+.input-group
+	> :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(
+		.invalid-tooltip
+	):not(.invalid-feedback) {
+	margin-left: 0;
+	padding-top: 10px;
+}
+
+.input-group-text {
+	display: flex;
+	align-items: center;
+	padding-top: 5px;
+	padding-left: 55px;
+	padding-right: 55px;
+	font-weight: 400;
+	line-height: 1.5;
+	text-align: center;
+	white-space: nowrap;
+	background-color: var(--corporate-color-1);
+	border: 1px solid var(--corporate-color-1);
+	border-radius: 0.25rem;
+	color: #ffff;
+	/* font-family: Gilroy-Regular; */
+	font-size: 20px;
+	transition: 0.2s;
+}
+/* End input file */
+
+.progress {
+	width: 100%;
+}
+
+.progress-bar {
+	background-color: var(--corporate-color-1);
+}
+
+.progress-title {
+	font-family: Gilroy-Light;
+}
+
+.quiz-questions-container {
+	min-height: 335px;
+}
+
+@media (max-width: 399px) {
+	.quiz-section-h3 {
+		font-size: 17px;
+	}
+}
+
+.progress,
+.progress-stacked {
+	--bs-progress-height: 1rem;
+	--bs-progress-font-size: 0.75rem;
+	--bs-progress-bg: var(--bs-secondary-bg);
+	--bs-progress-border-radius: var(--bs-border-radius);
+	--bs-progress-box-shadow: var(--bs-box-shadow-inset);
+	--bs-progress-bar-color: #fff;
+	--bs-progress-bar-bg: #0d6efd;
+	--bs-progress-bar-transition: width 0.6s ease;
+	display: flex;
+	height: var(--bs-progress-height);
+	overflow: hidden;
+	font-size: var(--bs-progress-font-size);
+	background-color: var(--bs-progress-bg);
+	border-radius: var(--bs-progress-border-radius);
+}
+
+/***
+Преимущества 
+***/
+
+.free-meas-form__info {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 30px;
+	justify-content: space-between;
+	margin-top: 50px;
+	width: 100%;
+}
+
+.free-meas-form__info-item {
+	background-color: #fff;
+	border-radius: 20px;
+	padding: 20px;
+	width: calc(33.333% - 30px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.free-meas-form__info-ico {
+	flex-shrink: 0;
+	width: 48px;
+	height: 48px;
+	background: #3498db;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 15px;
+}
+
+.ico {
+	width: 24px;
+	height: 24px;
+	fill: white;
+}
+
+@media (max-width: 1200px) {
+	.free-meas-form__info-item {
+		width: calc(33.33333% - 20px);
+	}
+}
+
+@media (max-width: 768px) {
+	body {
+		padding: 10px;
+	}
+
+	.free-meas-form__info {
+		gap: 15px;
+		margin-top: 30px;
+	}
+
+	.free-meas-form__info-item {
+		width: calc(50% - 7.5px);
+		padding: 15px;
+	}
+
+	.free-meas-form__info-ico {
+		width: 40px;
+		height: 40px;
+		margin-bottom: 12px;
+	}
+
+	.ico {
+		width: 20px;
+		height: 20px;
+	}
+}
+
+@media (max-width: 480px) {
+	.free-meas-form__info-item {
+		width: 100%;
+	}
+}
+
+.icon-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.icon-text {
+	margin-bottom: 0;
 }
