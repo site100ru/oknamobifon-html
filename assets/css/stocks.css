@@ -1,3 +1,7 @@
+html {
+    scroll-padding-top: 100px;
+}
+
 .page:not(.home) .section-hero__promo li {
 	list-style-type: square;
 }
@@ -5,7 +9,7 @@
 .section-hero__title-hero {
 	font-family: GT, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans',
 		'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol', 'Noto Color Emoji';
+		'Segoe UI Symbol', 'Noto Color Emoji' !important;
 }
 
 .section-profile,
@@ -1393,18 +1397,17 @@
 .price-item__name,
 .price-item__price {
 	color: #6c757d;
-    font-weight: 400;
-    font-size: clamp(14px, 2vw, 18px);
-    line-height: 1.3;
-    margin-bottom: 20px;
-		text-wrap: nowrap;
+	font-weight: 400;
+	font-size: clamp(14px, 2vw, 18px);
+	line-height: 1.3;
+	margin-bottom: 20px;
+	text-wrap: nowrap;
 }
 
 .card-windows {
 	max-height: 200px;
 	object-fit: contain;
 }
-
 
 .flag {
 	margin: 0.5em;
@@ -1432,7 +1435,12 @@
 }
 
 @media (max-width: 768px) {
-		.btn.btn-primary.btn-icon.btn--icon-right.btn-cta{
-			height: 100%;
-		}
+	.btn.btn-primary.btn-icon.btn--icon-right.btn-cta {
+		height: 100%;
+	}
+}
+
+.site-header--unpinned.site-header--not-top,
+.site-header--pinned.site-header--not-top {
+	top: 0;
 }
