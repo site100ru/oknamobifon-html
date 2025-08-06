@@ -1,5 +1,5 @@
 html {
-    scroll-padding-top: 100px;
+    scroll-padding-top: 60px;
 }
 
 .page:not(.home) .section-hero__promo li {
@@ -1272,7 +1272,7 @@ html {
 
 @media (max-width: 399px) {
 	.quiz-section-h3 {
-		font-size: 17px;
+		font-size: 13px;
 	}
 }
 
