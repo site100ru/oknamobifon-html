@@ -1,26 +1,56 @@
-<?php
-// Показ сообщений
-session_start();
-if (isset($_SESSION['message'])) {
-	$bg = ($_SESSION['message'] === 'success') ? '#28a745' : '#dc3545';
-	echo '<div id="msg" style="position:fixed;top:20px;right:20px;background:' . $bg . ';color:white;padding:15px 20px;border-radius:5px;z-index:9999;max-width:300px;">';
-	echo $_SESSION['message_text'];
-	echo '<button onclick="document.getElementById(\'msg\').remove()" style="background:none;border:none;color:white;font-size:18px;cursor:pointer;margin-left:10px;">×</button>';
-	echo '</div>';
-	echo '<script>setTimeout(() => document.getElementById("msg")?.remove(), 5000);</script>';
-	unset($_SESSION['message'], $_SESSION['message_text']);
-}
-?>
+<!-- Разработка сайтов на WordPress [ Woocommerce ] © Irtek.dev | https://irtek.dev -->
 <!DOCTYPE html>
 <html lang="ru-RU">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Промо акция - Окна со скидкой до 50%</title>
-	<!-- Подключаем стили из темы WordPress -->
-	<link rel="stylesheet" href="../wp-content/themes/oknamobifon/assets/css/main.min.css">
-	<link rel="stylesheet" href="../wp-content/themes/oknamobifon/assets/css/stocks.css">
+	<meta http-equiv="Content-Type" content="type; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="theme-color" content="#1B75BB" />
+	<link rel="icon" type="image/png" href="/wp-content/themes/oknamobifon/assets/favicon/favicon-96x96.png"
+		sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="/wp-content/themes/oknamobifon/assets/favicon/favicon.svg" />
+	<link rel="shortcut icon" href="/wp-content/themes/oknamobifon/assets/favicon/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180"
+		href="/wp-content/themes/oknamobifon/assets/favicon/apple-touch-icon.png" />
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+	<!-- This site is optimized with the Yoast SEO plugin v25.2 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Входные двери. Изготовление и монтаж деревянных и пластиковых окон в Москве</title>
+	<link rel="stylesheet" id="wp-block-library-css"
+		href="https://oknamobifon.ru//wp-includes/css/dist/block-library/style.min.css?ver=6.8.2" type="text/css"
+		media="all" />
+	<link rel="stylesheet" id="OknaMobifon-style-css"
+		href="https://oknamobifon.ru/wp-content/themes/oknamobifon/assets/css/main.min.css?ver=0.0.60" type="text/css"
+		media="all" />
+	<link rel="icon" href="https://oknamobifon.ru/wp-content/uploads/2025/06/web-app-manifest-512x512-1-150x150.png"
+		sizes="32x32" />
+	<link rel="icon" href="https://oknamobifon.ru/wp-content/uploads/2025/06/web-app-manifest-512x512-1-300x300.png"
+		sizes="192x192" />
+	<link rel="apple-touch-icon"
+		href="https://oknamobifon.ru/wp-content/uploads/2025/06/web-app-manifest-512x512-1-300x300.png" />
+	<meta name="msapplication-TileImage"
+		content="https://oknamobifon.ru/wp-content/uploads/2025/06/web-app-manifest-512x512-1-300x300.png" />
+	<!-- Yandex.Metrika counter -->
+	<script defer
+		src="data:text/javascript;base64,IChmdW5jdGlvbihtLGUsdCxyLGksayxhKXttW2ldPW1baV18fGZ1bmN0aW9uKCl7KG1baV0uYT1tW2ldLmF8fFtdKS5wdXNoKGFyZ3VtZW50cyl9OyBtW2ldLmw9MSpuZXcgRGF0ZSgpOyBmb3IgKHZhciBqID0gMDsgaiA8IGRvY3VtZW50LnNjcmlwdHMubGVuZ3RoOyBqKyspIHtpZiAoZG9jdW1lbnQuc2NyaXB0c1tqXS5zcmMgPT09IHIpIHsgcmV0dXJuOyB9fSBrPWUuY3JlYXRlRWxlbWVudCh0KSxhPWUuZ2V0RWxlbWVudHNCeVRhZ05hbWUodClbMF0say5hc3luYz0xLGsuc3JjPXIsYS5wYXJlbnROb2RlLmluc2VydEJlZm9yZShrLGEpfSkgKHdpbmRvdywgZG9jdW1lbnQsICJzY3JpcHQiLCAiaHR0cHM6Ly9tYy55YW5kZXgucnUvbWV0cmlrYS90YWcuanMiLCAieW0iKTsgeW0oMTUxMTI2LCAiaW5pdCIsIHsgY2xpY2ttYXA6dHJ1ZSwgdHJhY2tMaW5rczp0cnVlLCBhY2N1cmF0ZVRyYWNrQm91bmNlOnRydWUsIHdlYnZpc29yOnRydWUgfSk7IA=="></script>
+	<noscript>
+		<div>
+			<img src="https://mc.yandex.ru/watch/151126" style="position: absolute; left: -9999px" alt="" />
+		</div>
+	</noscript>
+	<!-- /Yandex.Metrika counter -->
+	<style>
+		.gallery-grid__item img,
+		.gallery__item img {
+			object-fit: contain;
+			margin-bottom: 20px;
+		}
+
+		.attributes {
+			margin-top: 20px;
+		}
+	</style>
+	<link rel="stylesheet" href="assets/css/stocks.css" type="text/css" />
 </head>
 
 <body>
@@ -1608,7 +1638,8 @@ if (isset($_SESSION['message'])) {
 								<span style="color: #0c99cc">ценный подарок</span> на замере!
 							</h3>
 
-							<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback" name="feedback" class="form">
+							<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback"
+								name="feedback" class="form">
 								<div class="loader-box"><span class="loader"></span></div>
 								<div class="row quiz-questions-container align-items-center">
 									<div class="col col-md-12">
@@ -1938,7 +1969,8 @@ if (isset($_SESSION['message'])) {
 					</p>
 				</div>
 
-				<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback4" name="feedback" class="form">
+				<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback4"
+					name="feedback" class="form">
 					<div class="loader-box justify-content-center align-items-center">
 						<span class="loader"></span>
 					</div>
@@ -2897,8 +2929,8 @@ if (isset($_SESSION['message'])) {
 								<p class="section__subtitle">
 									Получите бесплатную консультацию у нашиx специалистов
 								</p>
-								<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="callback" name="callback" class="form"
-									style="max-width: 600px">
+								<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="callback"
+									name="callback" class="form" style="max-width: 600px">
 									<div class="loader-box"><span class="loader"></span></div>
 									<div class="form__box">
 										<div class="form-floating">
@@ -3121,7 +3153,8 @@ if (isset($_SESSION['message'])) {
 				</button>
 				<div class="modal-body">
 					<h2>Мы Вам перезвоним</h2>
-					<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback" name="feedback" class="form">
+					<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback"
+						name="feedback" class="form">
 						<div class="loader-box"><span class="loader"></span></div>
 						<div class="form__box">
 							<div class="form-floating">
@@ -3307,7 +3340,8 @@ if (isset($_SESSION['message'])) {
 				</button>
 				<div class="modal-body">
 					<h2>Мы Вам перезвоним</h2>
-					<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback" name="feedback" class="form">
+					<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback"
+						name="feedback" class="form">
 						<div class="loader-box"><span class="loader"></span></div>
 						<div class="form__box">
 							<div class="input-group custom-file-button">
@@ -3462,12 +3496,12 @@ if (isset($_SESSION['message'])) {
 		src="https://oknamobifon.ru/wp-content/themes/oknamobifon/assets/js/main.bundle.min.js?ver=0.0.60"
 		id="OknaMobifon-script-js" defer="defer" data-wp-strategy="defer"></script>
 
-		<script>
-	if (window.location.pathname.includes('/промо')) {
-		const scriptTags = document.querySelectorAll('script[src*="OknaMobifon"]');
-		scriptTags.forEach(el => el.remove());
-	}
-</script>
+	<script>
+		if (window.location.pathname.includes('/промо')) {
+			const scriptTags = document.querySelectorAll('script[src*="OknaMobifon"]');
+			scriptTags.forEach(el => el.remove());
+		}
+	</script>
 
 </body>
 
