@@ -50,7 +50,7 @@
 			margin-top: 20px;
 		}
 	</style>
-	<link rel="stylesheet" href="assets/css/stocks.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/stocks.css" type="text/css" />
 </head>
 
 <body>
