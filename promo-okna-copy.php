@@ -1,4 +1,17 @@
-<!-- Разработка сайтов на WordPress [ Woocommerce ] © Irtek.dev | https://irtek.dev -->
+<?php
+/**
+ * Template Name: Страница акций
+ */
+
+session_start();
+
+if (isset($_SESSION['win'])) {
+	unset($_SESSION['win']);
+	$display = "block";
+} else
+	$display = "none";
+
+?>
 <!DOCTYPE html>
 <html lang="ru-RU">
 
@@ -15,12 +28,7 @@
 		href="/wp-content/themes/oknamobifon/assets/favicon/apple-touch-icon.png" />
 	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 	<!-- This site is optimized with the Yoast SEO plugin v25.2 - https://yoast.com/wordpress/plugins/seo/ -->
-
-	<title>Акции и скидки на пластиковые окна в Москве - ОкнаМобифон</title>
-	<meta name="description"
-		content="Действующие акции и скидки на пластиковые окна в Москве. Скидки до 50%, рассрочка без процентов. Качественные окна ПВХ по выгодным ценам от ОкнаМобифон.">
-
-
+	<title>Входные двери. Изготовление и монтаж деревянных и пластиковых окон в Москве</title>
 	<!-- <link
 			rel="stylesheet"
 			id="wp-block-library-css"
@@ -437,8 +445,7 @@
 								alt="rehau" />
 							<div class="card-body text-center px-0">
 								<h5 class="card-title">Rehau</h5>
-								<img
-									src="<?php echo get_template_directory_uri(); ?>/<?php echo get_template_directory_uri(); ?>/assets/img/stocks/Stars.svg"
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/stocks/Stars.svg"
 									class="mb-2 img-fluid" alt="5 звезд" />
 
 								<p class="card-text card-price">
@@ -1653,7 +1660,7 @@
 							</h3>
 
 							<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback"
-								name="feedback" class="form">
+								method="post" name="feedback" class="form">
 								<div class="loader-box"><span class="loader"></span></div>
 								<div class="row quiz-questions-container align-items-center">
 									<div class="col col-md-12">
@@ -1925,7 +1932,7 @@
 				</div>
 
 				<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback4"
-					name="feedback" class="form">
+					method="post" name="feedback" class="form">
 					<div class="loader-box justify-content-center align-items-center">
 						<span class="loader"></span>
 					</div>
@@ -2830,7 +2837,7 @@
 									Получите бесплатную консультацию у нашиx специалистов
 								</p>
 								<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="callback"
-									name="callback" class="form" style="max-width: 600px">
+									method="post" name="callback" class="form" style="max-width: 600px">
 									<div class="loader-box"><span class="loader"></span></div>
 									<div class="form__box">
 										<div class="form-floating">
@@ -2946,7 +2953,7 @@
 					const formData = new FormData(form);
 
 					// Отправляем форму
-					fetch('callback_handler.php', {
+					fetch('<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php', {
 						method: 'POST',
 						body: formData,
 					})
@@ -3053,8 +3060,9 @@
 				</button>
 				<div class="modal-body">
 					<h2>Мы Вам перезвоним</h2>
-					<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback"
-						name="feedback" class="form">
+
+					<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback-modal-form"
+						method="post" name="feedback" class="form">
 						<div class="loader-box"><span class="loader"></span></div>
 						<div class="form__box">
 							<div class="form-floating">
@@ -3064,9 +3072,9 @@
 							</div>
 							<div class="form-floating">
 								<input type="tel" pattern="^(\+7|8)\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$" class="form-control"
-									id="feedback-phone" name="form-phone" placeholder="Телефон" required
+									id="feedback-modal-phone" name="form-phone" placeholder="Телефон" required
 									title="Введите номер в формате: +7 (999) 999-99-99 или 8 (999) 999-99-99" />
-								<label for="feedback-phone"><span class="form__required">*</span> Телефон</label>
+								<label for="feedback-modal-phone"><span class="form__required">*</span> Телефон</label>
 							</div>
 							<div class="form-check form__privacy-policy-check">
 								<input class="form-check-input" type="checkbox" value="" id="feedback-privacy-policy" checked
@@ -3240,8 +3248,8 @@
 				</button>
 				<div class="modal-body">
 					<h2>Мы Вам перезвоним</h2>
-					<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback"
-						name="feedback" class="form">
+					<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" method="post"
+						id="feedback-consultation-form" name="feedback" class="form">
 						<div class="loader-box"><span class="loader"></span></div>
 						<div class="form__box">
 							<div class="input-group custom-file-button">
@@ -3257,7 +3265,7 @@
 							</div>
 							<div class="form-floating">
 								<input type="tel" pattern="^(\+7|8)\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$" class="form-control"
-									id="feedback-phone" name="form-phone" placeholder="Телефон" required=""
+									id="feedback-consultation-phone" name="form-phone" placeholder="Телефон" required=""
 									title="Введите номер в формате: +7 (999) 999-99-99 или 8 (999) 999-99-99" />
 								<label for="feedback-phone"><span class="form__required">*</span> Телефон</label>
 							</div>
@@ -3388,7 +3396,7 @@
 	</script>
 	<!-- /Callback button JS -->
 
-	<script src="assets/js/quize.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/quize.js"></script>
 
 	<!-- <script src="assets/js/Accordion.js"></script>
 
@@ -3403,6 +3411,93 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
+
+
+	<script>
+		// Функция для закрытия сообщения
+		function f1() {
+			const backgroundMsg = document.getElementById('background-msg');
+			const messageContainer = backgroundMsg ? backgroundMsg.parentElement : null;
+
+			if (messageContainer) {
+				messageContainer.style.display = 'none';
+			}
+		}
+
+		// Автоматически закрываем сообщение через 10 секунд
+		document.addEventListener('DOMContentLoaded', function () {
+			const messageContainer = document.querySelector('div[onclick="f1();"]');
+			if (messageContainer && messageContainer.style.display === 'block') {
+				setTimeout(function () {
+					f1();
+				}, 10000); // 10 секунд
+			}
+		});
+
+			document.addEventListener('DOMContentLoaded', function () {
+			// Массив всех полей телефонов
+			const phoneInputs = [
+			'feedback-modal-phone',
+			'feedback-callback-phone',
+			'feedback-consultation-phone',
+			'feedback-phone4',
+			'feedback-phone'
+			];
+
+			phoneInputs.forEach(function (inputId) {
+				const phoneInput = document.getElementById(inputId);
+			if (phoneInput) {
+				setupPhoneMask(phoneInput);
+				}
+			});
+
+			function setupPhoneMask(phoneInput) {
+				phoneInput.addEventListener('input', function (e) {
+					let value = e.target.value.replace(/\D/g, '');
+
+					if (value.length > 0) {
+						if (value[0] === '8') {
+							value = '8' + value.substring(1);
+						} else if (value[0] === '7') {
+							value = '+7' + value.substring(1);
+						} else if (value.length >= 10) {
+							value = '+7' + value;
+						}
+
+						if (value.startsWith('+7') && value.length >= 5) {
+							value = value.replace(
+								/(\+7)(\d{3})(\d{3})(\d{2})(\d{2})/,
+								'$1 ($2) $3-$4-$5',
+							);
+						} else if (value.startsWith('8') && value.length >= 4) {
+							value = value.replace(
+								/8(\d{3})(\d{3})(\d{2})(\d{2})/,
+								'8 ($1) $2-$3-$4',
+							);
+						}
+					}
+					e.target.value = value;
+				});
+
+			phoneInput.addEventListener('focus', function (e) {
+					if (e.target.value === '') {
+				e.target.value = '+7 (';
+					}
+				});
+			}
+		});
+	</script>
+
+	<!-- Показываем сообщение об успешной отправки -->
+	<div style="display: <?php echo $display; ?>;" onclick="f1();">
+		<!-- Присваиваем свойству display значение переменной $display -->
+		<div id="background-msg" style="display: <?php echo $display; ?>;"></div> <!-- Показываем background -->
+		<!-- Показываем сообщение об успешной отправке данных -->
+		<div id="message">
+			<?php echo $_SESSION['message_text'];
+			unset($_SESSION['message_text']); ?>
+		</div>
+	</div>
 </body>
 
 </html>
