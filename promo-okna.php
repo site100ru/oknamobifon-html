@@ -1,4 +1,17 @@
-<!-- Разработка сайтов на WordPress [ Woocommerce ] © Irtek.dev | https://irtek.dev -->
+<?php
+/**
+ * Template Name: Страница акций
+ */
+
+session_start();
+
+if (isset($_SESSION['win'])) {
+	unset($_SESSION['win']);
+	$display = "block";
+} else
+	$display = "none";
+
+?>
 <!DOCTYPE html>
 <html lang="ru-RU">
 
@@ -16,9 +29,16 @@
 	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 	<!-- This site is optimized with the Yoast SEO plugin v25.2 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>Входные двери. Изготовление и монтаж деревянных и пластиковых окон в Москве</title>
+	<!-- <link
+			rel="stylesheet"
+			id="wp-block-library-css"
+			href="https://oknamobifon.ru//wp-includes/css/dist/block-library/style.min.css?ver=6.8.2"
+			type="text/css"
+			media="all"
+		/> -->
+
 	<link rel="stylesheet" id="wp-block-library-css"
-		href="https://oknamobifon.ru//wp-includes/css/dist/block-library/style.min.css?ver=6.8.2" type="text/css"
-		media="all" />
+		href="<?php echo get_template_directory_uri(); ?>/promo/css/bootstrap.min.css" type="text/css" media="all" />
 	<link rel="stylesheet" id="OknaMobifon-style-css"
 		href="https://oknamobifon.ru/wp-content/themes/oknamobifon/assets/css/main.min.css?ver=0.0.60" type="text/css"
 		media="all" />
@@ -50,10 +70,11 @@
 			margin-top: 20px;
 		}
 	</style>
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/stocks.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/promo/css/stocks.css" type="text/css" />
 </head>
 
-<body>
+<body
+	class="wp-singular page-template-default page page-id-17570 page-parent page-child parent-pageid-17508 wp-custom-logo wp-theme-oknamobifon">
 	<header class="site-header" itemscope itemtype="https://schema.org/WPHeader">
 		<div class="container site-header__container">
 			<div class="site-header__column-logo">
@@ -136,7 +157,8 @@
 			</div>
 			<div class="site-header__hamburger order-2 order-lg-3 d-lg-none">
 				<div class="site-header__cta">
-					<button class="btn-chip" data-bs-toggle="modal" data-bs-target="#feedback-modal">
+					<button class="btn-chip" data-bs-toggle="modal" data-bs-target="#feedback-modal"
+						data-context="header-order-call">
 						<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 							<path
 								d="M19.44 13c-.22 0-.45-.07-.67-.12a9.44 9.44 0 01-1.31-.39 2 2 0 00-2.48 1l-.22.45a12.18 12.18 0 01-2.66-2 12.18 12.18 0 01-2-2.66l.42-.28a2 2 0 001-2.48 10.33 10.33 0 01-.39-1.31c-.05-.22-.09-.45-.12-.68a3 3 0 00-3-2.49h-3a3 3 0 00-3 3.41 19 19 0 0016.52 16.46h.38a3 3 0 002-.76 3 3 0 001-2.25v-3a3 3 0 00-2.47-2.9zm.5 6a1 1 0 01-.34.75 1.06 1.06 0 01-.82.25A17 17 0 014.07 5.22a1.09 1.09 0 01.25-.82 1 1 0 01.75-.34h3a1 1 0 011 .79q.06.41.15.81a11.12 11.12 0 00.46 1.55l-1.4.65a1 1 0 00-.49 1.33 14.49 14.49 0 007 7 1 1 0 00.76 0 1 1 0 00.57-.52l.62-1.4a13.69 13.69 0 001.58.46q.4.09.81.15a1 1 0 01.79 1z"
@@ -144,7 +166,8 @@
 						</svg>
 						Заказать <br />звонок
 					</button>
-					<button class="btn-chip" data-bs-toggle="modal" data-bs-target="#feedback-modal">
+					<button class="btn-chip" data-bs-toggle="modal" data-bs-target="#feedback-modal"
+						data-context="header-call-measurer">
 						<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 							<path
 								d="M22.61 7.05L17 1.39a1 1 0 00-.71-.29 1 1 0 00-.7.29L1.39 15.54a1 1 0 000 1.41l5.66 5.66a1 1 0 00.71.29 1 1 0 00.7-.29l2.83-2.83 8.49-8.49 2.83-2.83a1 1 0 000-1.41zm-3.54 2.12l-.71-.71a1 1 0 00-1.41 0 1 1 0 000 1.42l.71.71L16.24 12l-2.12-2.12a1 1 0 00-1.41 1.41l2.12 2.12-1.42 1.42-.7-.71a1 1 0 10-1.42 1.42l.71.7-1.41 1.42-2.13-2.12a1 1 0 00-1.41 0 1 1 0 000 1.41l2.12 2.12-1.41 1.42-4.25-4.25L16.24 3.51l4.25 4.25z"
@@ -189,7 +212,7 @@
 						</ul>
 						<div class="section-hero__cta fade-in-right" style="--delay: 0.8s">
 							<button class="btn btn-primary btn-cta" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-								aria-label="Оставить заявку">
+								aria-label="Оставить заявку" data-context="hero-section-request">
 								Оставить заявку
 							</button>
 						</div>
@@ -229,7 +252,7 @@
 							<ul>
 								<li>
 									<a href="" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-										aria-label="Оставить заявку">Оставить заявку</a>
+										data-context="service-apartment-glazing" aria-label="Оставить заявку">Оставить заявку</a>
 								</li>
 							</ul>
 						</div>
@@ -255,7 +278,7 @@
 							<ul>
 								<li>
 									<a href="" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-										aria-label="Оставить заявку">Оставить заявку</a>
+										data-context="service-balcony-glazing" aria-label="Оставить заявку">Оставить заявку</a>
 								</li>
 							</ul>
 						</div>
@@ -280,7 +303,7 @@
 							<ul>
 								<li>
 									<a href="" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-										aria-label="Оставить заявку">Оставить заявку</a>
+										data-context="service-cottage-glazing" aria-label="Оставить заявку">Оставить заявку</a>
 								</li>
 							</ul>
 						</div>
@@ -305,7 +328,7 @@
 							<ul>
 								<li>
 									<a href="" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-										aria-label="Оставить заявку">Оставить заявку</a>
+										data-context="service-veranda-glazing" aria-label="Оставить заявку">Оставить заявку</a>
 								</li>
 							</ul>
 						</div>
@@ -328,7 +351,7 @@
 							<ul>
 								<li>
 									<a href="" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-										aria-label="Оставить заявку">Оставить заявку</a>
+										data-context="service-gazebo-glazing" aria-label="Оставить заявку">Оставить заявку</a>
 								</li>
 							</ul>
 						</div>
@@ -353,7 +376,7 @@
 							<ul>
 								<li>
 									<a href="" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-										aria-label="Оставить заявку">Оставить заявку</a>
+										data-context="service-facade-glazing" aria-label="Оставить заявку">Оставить заявку</a>
 								</li>
 							</ul>
 						</div>
@@ -420,18 +443,18 @@
 				<div class="row justify-content-between">
 					<div class="col col-md-12 col-lg-6 mb-5 mb-lg-0">
 						<div class="card border-0">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/stocks/Rehau.png" class="card-img-top"
+							<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Rehau.png" class="card-img-top"
 								alt="rehau" />
 							<div class="card-body text-center px-0">
 								<h5 class="card-title">Rehau</h5>
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/stocks/Stars.svg"
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Stars.svg"
 									class="mb-2 img-fluid" alt="5 звезд" />
 
 								<p class="card-text card-price">
 									От <span>9&nbsp;940</span> руб/м<sup>2</sup>
 								</p>
 								<button class="btn btn-primary btn-cta" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-									aria-label="Подробная консультация" ata-profile="Rehau">
+									data-context="calculate-cost-rehau" aria-label="Подробная консультация" data-profile="Rehau">
 									Рассчитать стоимость
 								</button>
 							</div>
@@ -440,18 +463,18 @@
 
 					<div class="col col-md-12 col-lg-6 mb-5 mb-lg-0">
 						<div class="card border-0">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/stocks/KBE.png" class="card-img-top"
+							<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/KBE.png" class="card-img-top"
 								alt="KBE" />
 							<div class="card-body text-center px-0">
 								<h5 class="card-title">KBE</h5>
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/stocks/Stars.svg"
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Stars.svg"
 									class="mb-2 img-fluid" alt="5 звезд" />
 
 								<p class="card-text card-price">
 									От <span>9&nbsp;040</span> руб/м<sup>2</sup>
 								</p>
 								<button class="btn btn-primary btn-cta" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-									aria-label="Подробная консультация" ata-profile="KBE">
+									data-context="calculate-cost-kbe" aria-label="Подробная консультация" data-profile="KBE">
 									Рассчитать стоимость
 								</button>
 							</div>
@@ -460,18 +483,18 @@
 
 					<div class="col col-md-12 col-lg-6 mb-5 mb-lg-0">
 						<div class="card border-0">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/stocks/Novotex.png" class="card-img-top"
+							<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Novotex.png" class="card-img-top"
 								alt="Novotex" />
 							<div class="card-body text-center px-0">
 								<h5 class="card-title">Novotex</h5>
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/stocks/Stars.svg"
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Stars.svg"
 									class="mb-2 img-fluid" alt="5 звезд" />
 
 								<p class="card-text card-price">
 									От <span>8&nbsp;240</span> руб/м<sup>2</sup>
 								</p>
 								<button class="btn btn-primary btn-cta" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-									aria-label="Подробная консультация" ata-profile="Novotex">
+									data-context="calculate-cost-novotex" aria-label="Подробная консультация" data-profile="Novotex">
 									Рассчитать стоимость
 								</button>
 							</div>
@@ -480,18 +503,18 @@
 
 					<div class="col col-md-12 col-lg-6 mb-5 mb-lg-0">
 						<div class="card border-0">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/stocks/Provedal.png" class="card-img-top"
+							<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Provedal.png" class="card-img-top"
 								alt="Provedal" />
 							<div class="card-body text-center px-0">
 								<h5 class="card-title">Provedal</h5>
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/stocks/Stars.svg"
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Stars.svg"
 									class="mb-2 img-fluid" alt="5 звезд" />
 
 								<p class="card-text card-price">
 									От <span>6&nbsp;040</span> руб/м<sup>2</sup>
 								</p>
 								<button class="btn btn-primary btn-cta" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-									aria-label="Подробная консультация" ata-profile="Provedal">
+									data-context="calculate-cost-provedal" aria-label="Подробная консультация" data-profile="Provedal">
 									Рассчитать стоимость
 								</button>
 							</div>
@@ -516,40 +539,43 @@
 				<div class="row justify-content-center">
 					<div class="col-md-10 col-lg-8 text-center mb-5 mb-lg-0">
 						<h3 class="mb-3 mb-md-2">Окно с <span>2 створками</span></h3>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/windows/card-img-4.png"
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/card-img-4.png"
 							class="mb-3 img-fluid w-100" alt="Окно с 2 створками" />
 						<div class="flag mx-auto">
 							<p class="card-discount-price">Скидка <span>1 250</span> руб</p>
 						</div>
 						<p class="card-price mb-2">От <span>8&nbsp;300</span> руб</p>
 						<button class="btn btn-primary btn-cta mx-auto" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-							aria-label="Подробная консультация" ata-profile="Окно с 2 створками">
+							data-context="calculate-cost-2-wings" aria-label="Подробная консультация"
+							data-profile="Окно с 2 створками">
 							Рассчитать стоимость
 						</button>
 					</div>
 					<div class="col-md-10 col-lg-8 text-center mb-5 mb-lg-0">
 						<h3 class="mb-3 mb-md-2">Окно с <span>3 створками</span></h3>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/windows/card-img-5.png"
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/card-img-5.png"
 							class="mb-3 img-fluid w-100" alt="Окно с 3 створками" />
 						<div class="flag mx-auto">
 							<p class="card-discount-price">Скидка <span>1 600</span> руб</p>
 						</div>
 						<p class="card-price mb-2">От <span>11&nbsp;900</span> руб</p>
 						<button class="btn btn-primary btn-cta mx-auto" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-							aria-label="Подробная консультация" ata-profile="Окно с 3 створками">
+							data-context="calculate-cost-3-wings" aria-label="Подробная консультация"
+							data-profile="Окно с 3 створками">
 							Рассчитать стоимость
 						</button>
 					</div>
 					<div class="col-md-10 col-lg-8 text-center mb-0">
 						<h3 class="mb-3 mb-md-2">Балконный <span>блок</span></h3>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/windows/card-img-6.png"
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/card-img-6.png"
 							class="mb-3 img-fluid w-100" alt="Балконный блокь" />
 						<div class="flag mx-auto">
 							<p class="card-discount-price">Скидка <span>2 050</span> руб</p>
 						</div>
 						<p class="card-price mb-2">От <span>14&nbsp;900</span> руб</p>
 						<button class="btn btn-primary btn-cta mx-auto" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-							aria-label="Подробная консультация" ata-profile="Балконный блок">
+							data-context="calculate-cost-balcony-block" aria-label="Подробная консультация"
+							data-profile="Балконный блок">
 							Рассчитать стоимость
 						</button>
 					</div>
@@ -572,7 +598,7 @@
 						<h5 class="mb-3 section-windows-title">
 							Лоджия <span>«Прямой»</span> 3х1,5
 						</h5>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/windows/card-img-1.png"
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/card-img-1.png"
 							class="mb-3 img-fluid w-100 card-windows" alt="Окно с 2 створками" />
 
 						<div class="price-item-wrapper mb-3 px-md-3">
@@ -602,7 +628,8 @@
 						</div>
 
 						<button class="btn btn-primary btn-cta mx-auto" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-							aria-label="Подробная консультация" ata-profile="Окно с 2 створками">
+							data-context="calculate-cost-loggia-straight" aria-label="Подробная консультация"
+							data-profile="Лоджия прямая">
 							Рассчитать стоимость
 						</button>
 					</div>
@@ -610,7 +637,7 @@
 						<h5 class="mb-3 section-windows-title">
 							Балкон <span>«Угловой»</span> 3х1,5
 						</h5>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/windows/card-img-2.png"
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/card-img-2.png"
 							class="mb-3 img-fluid w-100 card-windows" alt="Окно с 3 створками" />
 
 						<div class="price-item-wrapper mb-3 px-md-3">
@@ -640,7 +667,8 @@
 						</div>
 
 						<button class="btn btn-primary btn-cta mx-auto" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-							aria-label="Подробная консультация" ata-profile="Окно с 3 створками">
+							data-context="calculate-cost-balcony-corner" aria-label="Подробная консультация"
+							data-profile="Балкон угловой">
 							Рассчитать стоимость
 						</button>
 					</div>
@@ -648,7 +676,7 @@
 						<h5 class="mb-3 section-windows-title">
 							Балкон <span>«П-образный»</span> 3х1,5
 						</h5>
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/windows/card-img-3.png"
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/card-img-3.png"
 							class="mb-3 img-fluid w-100 card-windows" alt="Балконный блокь" />
 
 						<div class="price-item-wrapper mb-3 px-md-3">
@@ -679,7 +707,8 @@
 						</div>
 
 						<button class="btn btn-primary btn-cta mx-auto" data-bs-toggle="modal" data-bs-target="#feedback-modal"
-							aria-label="Подробная консультация" ata-profile="Балконный блок">
+							data-context="calculate-cost-balcony-u-shaped" aria-label="Подробная консультация"
+							data-profile="Балкон П-образный">
 							Рассчитать стоимость
 						</button>
 					</div>
@@ -1638,9 +1667,13 @@
 								<span style="color: #0c99cc">ценный подарок</span> на замере!
 							</h3>
 
-							<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback"
-								name="feedback" class="form">
+							<form action="<?php echo get_template_directory_uri(); ?>/promo/mails/callback_handler.php" id="feedback"
+								method="post" name="feedback" class="form">
 								<div class="loader-box"><span class="loader"></span></div>
+
+								<input type="hidden" name="form-source" value="quiz">
+								<input type="hidden" name="button-context" value="quiz-configurator">
+
 								<div class="row quiz-questions-container align-items-center">
 									<div class="col col-md-12">
 										<div class="form__box">
@@ -1739,7 +1772,7 @@
 									<h5 class="quiz-section-h3 mb-3">
 										Нужна конcультация?<span> Отвечу на все вопросы</span>
 									</h5>
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/director-img.jpg"
+									<img src="<?php echo get_template_directory_uri(); ?>/promo/img/director-img.jpg"
 										class="img-fluid mb-2 w-100" style="max-width: 150px; border-radius: 50%" />
 									<h5 class="quiz-section-h3 mb-4">
 										Миронов Александр <br />
@@ -1780,11 +1813,11 @@
 			<div class="container">
 				<div class="recalc_smeta">
 					<img class="background desktop"
-						src="<?php echo get_template_directory_uri(); ?>/assets/img/smetaFon/smetaFon.png" />
+						src="<?php echo get_template_directory_uri(); ?>/promo/img/smetaFon/smetaFon.png" />
 					<img class="background tablet"
-						src="<?php echo get_template_directory_uri(); ?>/assets/img/smetaFon/smetaFon_768.png" />
+						src="<?php echo get_template_directory_uri(); ?>/promo/img/smetaFon/smetaFon_768.png" />
 					<img class="background mobile"
-						src="<?php echo get_template_directory_uri(); ?>/assets/img/smetaFon/smetaFon_320.png" />
+						src="<?php echo get_template_directory_uri(); ?>/promo/img/smetaFon/smetaFon_320.png" />
 					<div class="blockCont">
 						<div class="text mb-3">
 							<div class="title">Пересчитаем смету</div>
@@ -1792,7 +1825,8 @@
 						</div>
 
 						<button class="btn btn-primary btn-cta mx-auto mx-sm-0" data-bs-toggle="modal"
-							data-bs-target="#calculatePriceWithDownloadModal" aria-label="Прикрепить смету">
+							data-bs-target="#calculatePriceWithDownloadModal" aria-label="Прикрепить смету"
+							data-context="attach-estimate">
 							Прикрепить смету
 						</button>
 					</div>
@@ -1806,15 +1840,15 @@
 
 				<div class="row">
 					<div class="col-md-8">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/action/action-card-1.jpg"
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-1.jpg"
 							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Скидки до 25% до 31 августа" />
 					</div>
 					<div class="col-md-8">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/action/action-card-2.jpg"
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-2.jpg"
 							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Скидки до 50% до 31 декабря" />
 					</div>
 					<div class="col-md-8">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/action/action-card-3.jpg"
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-3.jpg"
 							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Рассрочка на 1 год до 30 сентября" />
 					</div>
 				</div>
@@ -1835,72 +1869,29 @@
 				<div class="row">
 					<div class="col-lg-6 col-md-12 col-sm-12">
 						<div class="icon-item">
-							<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" style="flex-shrink: 0">
-								<circle cx="30" cy="30" r="30" fill="#9F0000" />
-								<g clip-path="url(#a)">
-									<path fill="#fff"
-										d="M44.533 37.023c.622.622.622 1.631 0 2.253l-5.257 5.257a1.593 1.593 0 0 1-2.253 0L30 37.51l-7.023 7.023a1.593 1.593 0 0 1-2.253 0l-5.257-5.257a1.593 1.593 0 0 1 0-2.253L22.49 30l-7.023-7.023a1.593 1.593 0 0 1 0-2.253l5.257-5.257a1.593 1.593 0 0 1 2.253 0L30 22.49l7.023-7.023a1.593 1.593 0 0 1 2.253 0l5.257 5.257a1.593 1.593 0 0 1 0 2.253L37.51 30l7.023 7.023Z" />
-								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M15 15h30v30H15z" />
-									</clipPath>
-								</defs>
-							</svg>
+							<img src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/cross.svg" alt="" />
 							<div class="icon-text">Продувание</div>
 						</div>
 					</div>
 
 					<div class="col-lg-6 col-md-12 col-sm-12">
 						<div class="icon-item">
-							<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" style="flex-shrink: 0">
-								<circle cx="30" cy="30" r="30" fill="#9F0000" />
-								<g clip-path="url(#a)">
-									<path fill="#fff"
-										d="M44.533 37.023c.622.622.622 1.631 0 2.253l-5.257 5.257a1.593 1.593 0 0 1-2.253 0L30 37.51l-7.023 7.023a1.593 1.593 0 0 1-2.253 0l-5.257-5.257a1.593 1.593 0 0 1 0-2.253L22.49 30l-7.023-7.023a1.593 1.593 0 0 1 0-2.253l5.257-5.257a1.593 1.593 0 0 1 2.253 0L30 22.49l7.023-7.023a1.593 1.593 0 0 1 2.253 0l5.257 5.257a1.593 1.593 0 0 1 0 2.253L37.51 30l7.023 7.023Z" />
-								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M15 15h30v30H15z" />
-									</clipPath>
-								</defs>
-							</svg>
+							<img src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/cross.svg" alt="" />
+
 							<div class="icon-text">Протекание</div>
 						</div>
 					</div>
 
 					<div class="col-lg-6 col-md-12 col-sm-12">
 						<div class="icon-item">
-							<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" style="flex-shrink: 0">
-								<circle cx="30" cy="30" r="30" fill="#9F0000" />
-								<g clip-path="url(#a)">
-									<path fill="#fff"
-										d="M44.533 37.023c.622.622.622 1.631 0 2.253l-5.257 5.257a1.593 1.593 0 0 1-2.253 0L30 37.51l-7.023 7.023a1.593 1.593 0 0 1-2.253 0l-5.257-5.257a1.593 1.593 0 0 1 0-2.253L22.49 30l-7.023-7.023a1.593 1.593 0 0 1 0-2.253l5.257-5.257a1.593 1.593 0 0 1 2.253 0L30 22.49l7.023-7.023a1.593 1.593 0 0 1 2.253 0l5.257 5.257a1.593 1.593 0 0 1 0 2.253L37.51 30l7.023 7.023Z" />
-								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M15 15h30v30H15z" />
-									</clipPath>
-								</defs>
-							</svg>
+							<img src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/cross.svg" alt="" />
 							<div class="icon-text">Плесень</div>
 						</div>
 					</div>
 
 					<div class="col-lg-6 col-md-12 col-sm-12">
 						<div class="icon-item">
-							<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" style="flex-shrink: 0">
-								<circle cx="30" cy="30" r="30" fill="#9F0000" />
-								<g clip-path="url(#a)">
-									<path fill="#fff"
-										d="M44.533 37.023c.622.622.622 1.631 0 2.253l-5.257 5.257a1.593 1.593 0 0 1-2.253 0L30 37.51l-7.023 7.023a1.593 1.593 0 0 1-2.253 0l-5.257-5.257a1.593 1.593 0 0 1 0-2.253L22.49 30l-7.023-7.023a1.593 1.593 0 0 1 0-2.253l5.257-5.257a1.593 1.593 0 0 1 2.253 0L30 22.49l7.023-7.023a1.593 1.593 0 0 1 2.253 0l5.257 5.257a1.593 1.593 0 0 1 0 2.253L37.51 30l7.023 7.023Z" />
-								</g>
-								<defs>
-									<clipPath id="a">
-										<path fill="#fff" d="M15 15h30v30H15z" />
-									</clipPath>
-								</defs>
-							</svg>
+							<img src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/cross.svg" alt="" />
 							<div class="icon-text">Грибок</div>
 						</div>
 					</div>
@@ -1913,44 +1904,28 @@
 				<div class="row">
 					<div class="col-lg-6 col-md-12 col-sm-12">
 						<div class="icon-item">
-							<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" style="flex-shrink: 0">
-								<circle cx="30" cy="30" r="30" fill="#1BBB46" />
-								<path fill="#fff" stroke="#fff" stroke-width="2"
-									d="M37.563 18.593a1.652 1.652 0 0 1 2.36-.179v.001l3.509 3.096c.686.604.758 1.654.174 2.35L28.874 41.415a1.616 1.616 0 0 1-2.374.122l-9.99-9.696a1.693 1.693 0 0 1-.065-2.355l3.183-3.449a1.652 1.652 0 0 1 2.366-.065h.001l5.166 5.012 10.401-12.393Z" />
-							</svg>
+							<img src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/check-mark.svg" alt="" />
 							<p class="icon-text">Используем только качественные материалы</p>
 						</div>
 					</div>
 
 					<div class="col-lg-6 col-md-12 col-sm-12">
 						<div class="icon-item">
-							<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" style="flex-shrink: 0">
-								<circle cx="30" cy="30" r="30" fill="#1BBB46" />
-								<path fill="#fff" stroke="#fff" stroke-width="2"
-									d="M37.563 18.593a1.652 1.652 0 0 1 2.36-.179v.001l3.509 3.096c.686.604.758 1.654.174 2.35L28.874 41.415a1.616 1.616 0 0 1-2.374.122l-9.99-9.696a1.693 1.693 0 0 1-.065-2.355l3.183-3.449a1.652 1.652 0 0 1 2.366-.065h.001l5.166 5.012 10.401-12.393Z" />
-							</svg>
+							<img src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/check-mark.svg" alt="" />
 							<p class="icon-text">Монтаж строго по ГОСТу</p>
 						</div>
 					</div>
 
 					<div class="col-lg-6 col-md-12 col-sm-12">
 						<div class="icon-item">
-							<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" style="flex-shrink: 0">
-								<circle cx="30" cy="30" r="30" fill="#1BBB46" />
-								<path fill="#fff" stroke="#fff" stroke-width="2"
-									d="M37.563 18.593a1.652 1.652 0 0 1 2.36-.179v.001l3.509 3.096c.686.604.758 1.654.174 2.35L28.874 41.415a1.616 1.616 0 0 1-2.374.122l-9.99-9.696a1.693 1.693 0 0 1-.065-2.355l3.183-3.449a1.652 1.652 0 0 1 2.366-.065h.001l5.166 5.012 10.401-12.393Z" />
-							</svg>
+							<img src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/check-mark.svg" alt="" />
 							<p class="icon-text">Средний стаж монтажника более 15 лет</p>
 						</div>
 					</div>
 
 					<div class="col-lg-6 col-md-12 col-sm-12">
 						<div class="icon-item">
-							<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none" style="flex-shrink: 0">
-								<circle cx="30" cy="30" r="30" fill="#1BBB46" />
-								<path fill="#fff" stroke="#fff" stroke-width="2"
-									d="M37.563 18.593a1.652 1.652 0 0 1 2.36-.179v.001l3.509 3.096c.686.604.758 1.654.174 2.35L28.874 41.415a1.616 1.616 0 0 1-2.374.122l-9.99-9.696a1.693 1.693 0 0 1-.065-2.355l3.183-3.449a1.652 1.652 0 0 1 2.366-.065h.001l5.166 5.012 10.401-12.393Z" />
-							</svg>
+							<img src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/check-mark.svg" alt="" />
 							<p class="icon-text">Опыт работы нашей компании более 25 лет</p>
 						</div>
 					</div>
@@ -1969,11 +1944,15 @@
 					</p>
 				</div>
 
-				<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback4"
-					name="feedback" class="form">
+				<form action="<?php echo get_template_directory_uri(); ?>/promo/mails/callback_handler.php" id="feedback4"
+					method="post" name="feedback" class="form">
 					<div class="loader-box justify-content-center align-items-center">
 						<span class="loader"></span>
 					</div>
+
+					<input type="hidden" name="form-source" value="consultation">
+					<input type="hidden" name="button-context" value="quick-consultation">
+
 					<div class="form__box col-md-16 mx-auto">
 						<div class="form-horizontal justify-content-center d-flex flex-wrap flex-lg-nowrap">
 							<div class="form-floating">
@@ -2022,7 +2001,7 @@
 				<div class="row justify-content-center">
 					<div class="col-md-12">
 						<img
-							src="<?php echo get_template_directory_uri(); ?>/assets/img/free-meas-form/522082201_18403552108112146_5737413084418262371_n.jpg"
+							src="<?php echo get_template_directory_uri(); ?>/promo/img/free-meas-form/522082201_18403552108112146_5737413084418262371_n.jpg"
 							class="w-100" style="border-radius: 9px" />
 					</div>
 					<div class="col-md-12 pb-5">
@@ -2061,7 +2040,7 @@
 					<div class="col-lg-12">
 						<div class="row">
 							<div class="col-6 col-md-4 text-center">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/advantage/section-advantage-ico-1.svg"
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/advantage/section-advantage-ico-1.svg"
 									class="img-fluid" />
 							</div>
 							<div class="col-18 col-md-20" style="align-content: center">
@@ -2074,7 +2053,7 @@
 					<div class="col-lg-12">
 						<div class="row">
 							<div class="col-6 col-md-4 text-center">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/advantage/section-advantage-ico-2.svg"
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/advantage/section-advantage-ico-2.svg"
 									class="img-fluid" />
 							</div>
 							<div class="col-18 col-md-20" style="align-content: center">
@@ -2088,7 +2067,7 @@
 					<div class="col-lg-12">
 						<div class="row">
 							<div class="col-6 col-md-4 text-center">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/advantage/section-advantage-ico-3.svg"
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/advantage/section-advantage-ico-3.svg"
 									class="img-fluid" />
 							</div>
 							<div class="col-18 col-md-20" style="align-content: center">
@@ -2101,7 +2080,7 @@
 					<div class="col-lg-12">
 						<div class="row">
 							<div class="col-6 col-md-4 text-center">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/advantage/section-advantage-ico-4.svg"
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/advantage/section-advantage-ico-4.svg"
 									class="img-fluid" />
 							</div>
 							<div class="col-18 col-md-20" style="align-content: center">
@@ -2114,7 +2093,7 @@
 					<div class="col-lg-12">
 						<div class="row">
 							<div class="col-6 col-md-4 text-center">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/advantage/section-advantage-ico-5.svg"
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/advantage/section-advantage-ico-5.svg"
 									class="img-fluid" />
 							</div>
 							<div class="col-18 col-md-20" style="align-content: center">
@@ -2127,7 +2106,7 @@
 					<div class="col-lg-12">
 						<div class="row">
 							<div class="col-6 col-md-4 text-center">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/advantage/section-advantage-ico-6.svg"
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/advantage/section-advantage-ico-6.svg"
 									class="img-fluid" />
 							</div>
 							<div class="col-18 col-md-20" style="align-content: center">
@@ -2328,67 +2307,6 @@
 					<a href="https://oknamobifon.ru/works/c/moskitnye-setki/" class="btn btn-outline-primary">Смотреть все ↗</a>
 				</header>
 				<div class="gallery-grid">
-					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/6963b0c1763ec98ce523d0e93c419710-1024x919-1.jpg"
-						target="_blank" data-pswp-width="1024" data-pswp-height="919" class="gallery-grid__item">
-						<img width="300" height="269"
-							src="https://oknamobifon.ru/wp-content/uploads/2025/03/6963b0c1763ec98ce523d0e93c419710-1024x919-1-300x269.jpg"
-							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async" srcset="
-									https://oknamobifon.ru/wp-content/uploads/2025/03/6963b0c1763ec98ce523d0e93c419710-1024x919-1-300x269.jpg  300w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/6963b0c1763ec98ce523d0e93c419710-1024x919-1-768x689.jpg  768w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/6963b0c1763ec98ce523d0e93c419710-1024x919-1.jpg         1024w
-								" sizes="(max-width: 300px) 100vw, 300px" />
-					</a>
-					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/b381208dd32694677e727d4415f46b6b-1024x767-1.jpg"
-						target="_blank" data-pswp-width="1024" data-pswp-height="767" class="gallery-grid__item">
-						<img width="300" height="225"
-							src="https://oknamobifon.ru/wp-content/uploads/2025/03/b381208dd32694677e727d4415f46b6b-1024x767-1-300x225.jpg"
-							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async" srcset="
-									https://oknamobifon.ru/wp-content/uploads/2025/03/b381208dd32694677e727d4415f46b6b-1024x767-1-300x225.jpg  300w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/b381208dd32694677e727d4415f46b6b-1024x767-1-768x575.jpg  768w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/b381208dd32694677e727d4415f46b6b-1024x767-1.jpg         1024w
-								" sizes="(max-width: 300px) 100vw, 300px" />
-					</a>
-					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/29c461b8ea34efc43c9cb4de5725b2c9-1024x875-1.jpg"
-						target="_blank" data-pswp-width="1024" data-pswp-height="875" class="gallery-grid__item">
-						<img width="300" height="256"
-							src="https://oknamobifon.ru/wp-content/uploads/2025/03/29c461b8ea34efc43c9cb4de5725b2c9-1024x875-1-300x256.jpg"
-							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async" srcset="
-									https://oknamobifon.ru/wp-content/uploads/2025/03/29c461b8ea34efc43c9cb4de5725b2c9-1024x875-1-300x256.jpg  300w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/29c461b8ea34efc43c9cb4de5725b2c9-1024x875-1-768x656.jpg  768w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/29c461b8ea34efc43c9cb4de5725b2c9-1024x875-1.jpg         1024w
-								" sizes="(max-width: 300px) 100vw, 300px" />
-					</a>
-					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/3525f5be81cdc275bd799215e8825780-1024x921-1.jpg"
-						target="_blank" data-pswp-width="1024" data-pswp-height="921" class="gallery-grid__item">
-						<img width="300" height="270"
-							src="https://oknamobifon.ru/wp-content/uploads/2025/03/3525f5be81cdc275bd799215e8825780-1024x921-1-300x270.jpg"
-							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async" srcset="
-									https://oknamobifon.ru/wp-content/uploads/2025/03/3525f5be81cdc275bd799215e8825780-1024x921-1-300x270.jpg  300w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/3525f5be81cdc275bd799215e8825780-1024x921-1-768x691.jpg  768w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/3525f5be81cdc275bd799215e8825780-1024x921-1.jpg         1024w
-								" sizes="(max-width: 300px) 100vw, 300px" />
-					</a>
-					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/8b577ee19b22950af9e511c1101032b5-1024x863-1.jpg"
-						target="_blank" data-pswp-width="1024" data-pswp-height="863" class="gallery-grid__item">
-						<img width="300" height="253"
-							src="https://oknamobifon.ru/wp-content/uploads/2025/03/8b577ee19b22950af9e511c1101032b5-1024x863-1-300x253.jpg"
-							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async" srcset="
-									https://oknamobifon.ru/wp-content/uploads/2025/03/8b577ee19b22950af9e511c1101032b5-1024x863-1-300x253.jpg  300w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/8b577ee19b22950af9e511c1101032b5-1024x863-1-768x647.jpg  768w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/8b577ee19b22950af9e511c1101032b5-1024x863-1.jpg         1024w
-								" sizes="(max-width: 300px) 100vw, 300px" />
-					</a>
-					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/31893ea24432b4b362faa98fea01b638-1024x1024-1.jpg"
-						target="_blank" data-pswp-width="1024" data-pswp-height="1024" class="gallery-grid__item">
-						<img width="300" height="300"
-							src="https://oknamobifon.ru/wp-content/uploads/2025/03/31893ea24432b4b362faa98fea01b638-1024x1024-1-300x300.jpg"
-							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async" srcset="
-									https://oknamobifon.ru/wp-content/uploads/2025/03/31893ea24432b4b362faa98fea01b638-1024x1024-1-300x300.jpg  300w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/31893ea24432b4b362faa98fea01b638-1024x1024-1-150x150.jpg  150w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/31893ea24432b4b362faa98fea01b638-1024x1024-1-768x768.jpg  768w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/31893ea24432b4b362faa98fea01b638-1024x1024-1.jpg         1024w
-								" sizes="(max-width: 300px) 100vw, 300px" />
-					</a>
 					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/6edfd7ad2e8af1521aa9d3b9ede59055.jpg"
 						target="_blank" data-pswp-width="640" data-pswp-height="427" class="gallery-grid__item">
 						<img width="300" height="200"
@@ -2716,26 +2634,32 @@
 					</a>
 
 					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/e51fad2b18dbdb5272e4a99704cfafd0-1.jpg"
-						target="_blank" data-pswp-width="480" data-pswp-height="360" class="gallery-grid__item"> <img width="300"
-							height="225"
+						target="_blank" data-pswp-width="480" data-pswp-height="360" class="gallery-grid__item">
+						<img width="300" height="225"
 							src="https://oknamobifon.ru/wp-content/uploads/2025/03/e51fad2b18dbdb5272e4a99704cfafd0-1-300x225.jpg"
-							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async"
-							srcset="https://oknamobifon.ru/wp-content/uploads/2025/03/e51fad2b18dbdb5272e4a99704cfafd0-1-300x225.jpg 300w, https://oknamobifon.ru/wp-content/uploads/2025/03/e51fad2b18dbdb5272e4a99704cfafd0-1.jpg 480w"
-							sizes="(max-width: 300px) 100vw, 300px"> </a>
+							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async" srcset="
+									https://oknamobifon.ru/wp-content/uploads/2025/03/e51fad2b18dbdb5272e4a99704cfafd0-1-300x225.jpg 300w,
+									https://oknamobifon.ru/wp-content/uploads/2025/03/e51fad2b18dbdb5272e4a99704cfafd0-1.jpg         480w
+								" sizes="(max-width: 300px) 100vw, 300px" />
+					</a>
 					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/3e0667a9f524a43cddef97cadce5ec10-1.jpg"
-						target="_blank" data-pswp-width="480" data-pswp-height="360" class="gallery-grid__item"> <img width="300"
-							height="225"
+						target="_blank" data-pswp-width="480" data-pswp-height="360" class="gallery-grid__item">
+						<img width="300" height="225"
 							src="https://oknamobifon.ru/wp-content/uploads/2025/03/3e0667a9f524a43cddef97cadce5ec10-1-300x225.jpg"
-							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async"
-							srcset="https://oknamobifon.ru/wp-content/uploads/2025/03/3e0667a9f524a43cddef97cadce5ec10-1-300x225.jpg 300w, https://oknamobifon.ru/wp-content/uploads/2025/03/3e0667a9f524a43cddef97cadce5ec10-1.jpg 480w"
-							sizes="(max-width: 300px) 100vw, 300px"> </a>
+							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async" srcset="
+									https://oknamobifon.ru/wp-content/uploads/2025/03/3e0667a9f524a43cddef97cadce5ec10-1-300x225.jpg 300w,
+									https://oknamobifon.ru/wp-content/uploads/2025/03/3e0667a9f524a43cddef97cadce5ec10-1.jpg         480w
+								" sizes="(max-width: 300px) 100vw, 300px" />
+					</a>
 					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/ddf73e20fe44dea2cda5fd73c87ee1f0.jpg"
-						target="_blank" data-pswp-width="412" data-pswp-height="308" class="gallery-grid__item"> <img width="300"
-							height="224"
+						target="_blank" data-pswp-width="412" data-pswp-height="308" class="gallery-grid__item">
+						<img width="300" height="224"
 							src="https://oknamobifon.ru/wp-content/uploads/2025/03/ddf73e20fe44dea2cda5fd73c87ee1f0-300x224.jpg"
-							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async"
-							srcset="https://oknamobifon.ru/wp-content/uploads/2025/03/ddf73e20fe44dea2cda5fd73c87ee1f0-300x224.jpg 300w, https://oknamobifon.ru/wp-content/uploads/2025/03/ddf73e20fe44dea2cda5fd73c87ee1f0.jpg 412w"
-							sizes="(max-width: 300px) 100vw, 300px"> </a>
+							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async" srcset="
+									https://oknamobifon.ru/wp-content/uploads/2025/03/ddf73e20fe44dea2cda5fd73c87ee1f0-300x224.jpg 300w,
+									https://oknamobifon.ru/wp-content/uploads/2025/03/ddf73e20fe44dea2cda5fd73c87ee1f0.jpg         412w
+								" sizes="(max-width: 300px) 100vw, 300px" />
+					</a>
 				</div>
 			</div>
 		</section>
@@ -2929,9 +2853,14 @@
 								<p class="section__subtitle">
 									Получите бесплатную консультацию у нашиx специалистов
 								</p>
-								<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="callback"
-									name="callback" class="form" style="max-width: 600px">
+								<form action="<?php echo get_template_directory_uri(); ?>/promo/mails/callback_handler.php" id="callback"
+									method="post" name="callback" class="form" style="max-width: 600px">
 									<div class="loader-box"><span class="loader"></span></div>
+
+									<input type="hidden" name="form-source" value="footer-callback">
+									<input type="hidden" name="button-context" value="footer-we-can-call">
+
+
 									<div class="form__box">
 										<div class="form-floating">
 											<input type="text" class="form-control" id="callback-name" name="form-name" placeholder="Ваше имя"
@@ -3046,7 +2975,7 @@
 					const formData = new FormData(form);
 
 					// Отправляем форму
-					fetch('callback_handler.php', {
+					fetch('<?php echo get_template_directory_uri(); ?>/promo/mails/callback_handler.php', {
 						method: 'POST',
 						body: formData,
 					})
@@ -3153,9 +3082,14 @@
 				</button>
 				<div class="modal-body">
 					<h2>Мы Вам перезвоним</h2>
-					<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback"
-						name="feedback" class="form">
+
+					<form action="<?php echo get_template_directory_uri(); ?>/promo/mails/callback_handler.php" id="feedback-modal-form"
+						method="post" name="feedback" class="form">
 						<div class="loader-box"><span class="loader"></span></div>
+
+						<input type="hidden" name="form-source" value="modal-callback" id="modal-form-source">
+						<input type="hidden" name="button-context" value="" id="modal-button-context">
+
 						<div class="form__box">
 							<div class="form-floating">
 								<input type="text" class="form-control" id="feedback-name" name="form-name" placeholder="Ваше имя"
@@ -3164,9 +3098,9 @@
 							</div>
 							<div class="form-floating">
 								<input type="tel" pattern="^(\+7|8)\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$" class="form-control"
-									id="feedback-phone" name="form-phone" placeholder="Телефон" required
+									id="feedback-modal-phone" name="form-phone" placeholder="Телефон" required
 									title="Введите номер в формате: +7 (999) 999-99-99 или 8 (999) 999-99-99" />
-								<label for="feedback-phone"><span class="form__required">*</span> Телефон</label>
+								<label for="feedback-modal-phone"><span class="form__required">*</span> Телефон</label>
 							</div>
 							<div class="form-check form__privacy-policy-check">
 								<input class="form-check-input" type="checkbox" value="" id="feedback-privacy-policy" checked
@@ -3232,7 +3166,8 @@
 			</nav>
 			<footer class="offcanvas__footer">
 				<div class="offcanvas__cta">
-					<button class="btn-chip" data-bs-toggle="modal" data-bs-target="#feedback-modal">
+					<button class="btn-chip" data-bs-toggle="modal" data-bs-target="#feedback-modal"
+						data-context="mobile-call-measurer">
 						<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 							<path
 								d="M22.61 7.05L17 1.39a1 1 0 00-.71-.29 1 1 0 00-.7.29L1.39 15.54a1 1 0 000 1.41l5.66 5.66a1 1 0 00.71.29 1 1 0 00.7-.29l2.83-2.83 8.49-8.49 2.83-2.83a1 1 0 000-1.41zm-3.54 2.12l-.71-.71a1 1 0 00-1.41 0 1 1 0 000 1.42l.71.71L16.24 12l-2.12-2.12a1 1 0 00-1.41 1.41l2.12 2.12-1.42 1.42-.7-.71a1 1 0 10-1.42 1.42l.71.7-1.41 1.42-2.13-2.12a1 1 0 00-1.41 0 1 1 0 000 1.41l2.12 2.12-1.41 1.42-4.25-4.25L16.24 3.51l4.25 4.25z"
@@ -3240,7 +3175,8 @@
 						</svg>
 						Вызвать <br />замерщика
 					</button>
-					<button class="btn-chip" data-bs-toggle="modal" data-bs-target="#feedback-modal">
+					<button class="btn-chip" data-bs-toggle="modal" data-bs-target="#feedback-modal"
+						data-context="mobile-order-call">
 						<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 							<path
 								d="M19.44 13c-.22 0-.45-.07-.67-.12a9.44 9.44 0 01-1.31-.39 2 2 0 00-2.48 1l-.22.45a12.18 12.18 0 01-2.66-2 12.18 12.18 0 01-2-2.66l.42-.28a2 2 0 001-2.48 10.33 10.33 0 01-.39-1.31c-.05-.22-.09-.45-.12-.68a3 3 0 00-3-2.49h-3a3 3 0 00-3 3.41 19 19 0 0016.52 16.46h.38a3 3 0 002-.76 3 3 0 001-2.25v-3a3 3 0 00-2.47-2.9zm.5 6a1 1 0 01-.34.75 1.06 1.06 0 01-.82.25A17 17 0 014.07 5.22a1.09 1.09 0 01.25-.82 1 1 0 01.75-.34h3a1 1 0 011 .79q.06.41.15.81a11.12 11.12 0 00.46 1.55l-1.4.65a1 1 0 00-.49 1.33 14.49 14.49 0 007 7 1 1 0 00.76 0 1 1 0 00.57-.52l.62-1.4a13.69 13.69 0 001.58.46q.4.09.81.15a1 1 0 01.79 1z"
@@ -3340,14 +3276,18 @@
 				</button>
 				<div class="modal-body">
 					<h2>Мы Вам перезвоним</h2>
-					<form action="<?php echo get_template_directory_uri(); ?>/mails/callback_handler.php" id="feedback"
-						name="feedback" class="form">
+					<form action="<?php echo get_template_directory_uri(); ?>/promo/mails/callback_handler.php" method="post"
+						id="feedback-consultation-form" name="feedback" class="form" enctype="multipart/form-data">
 						<div class="loader-box"><span class="loader"></span></div>
+
+						<input type="hidden" name="form-source" value="estimate-upload">
+						<input type="hidden" name="button-context" value="recalculate-estimate">
+
 						<div class="form__box">
 							<div class="input-group custom-file-button">
 								<label class="btn btn-primary" style="border-radius: 8px" for="inputGroupFile">Прикрепить</label>
 								<input type="file" name="file[]" class="form-control" id="inputGroupFile"
-									accept=".jpg,.jpeg,.png,.pdf,.heic" multiple />
+									accept=".jpg,.jpeg,.png,.pdf,.heic,.doc,.docx,.xls,.xlsx" multiple />
 							</div>
 
 							<div class="form-floating">
@@ -3357,7 +3297,7 @@
 							</div>
 							<div class="form-floating">
 								<input type="tel" pattern="^(\+7|8)\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$" class="form-control"
-									id="feedback-phone" name="form-phone" placeholder="Телефон" required=""
+									id="feedback-consultation-phone" name="form-phone" placeholder="Телефон" required=""
 									title="Введите номер в формате: +7 (999) 999-99-99 или 8 (999) 999-99-99" />
 								<label for="feedback-phone"><span class="form__required">*</span> Телефон</label>
 							</div>
@@ -3488,21 +3428,172 @@
 	</script>
 	<!-- /Callback button JS -->
 
-	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/quize.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/promo/js/quize.js"></script>
 
-	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/Accordion.js"></script>
+	<!-- <script src="assets/js/Accordion.js"></script>
 
-	<script type="text/javascript"
-		src="https://oknamobifon.ru/wp-content/themes/oknamobifon/assets/js/main.bundle.min.js?ver=0.0.60"
-		id="OknaMobifon-script-js" defer="defer" data-wp-strategy="defer"></script>
+		<script
+			type="text/javascript"
+			src="https://oknamobifon.ru/wp-content/themes/oknamobifon/assets/js/main.bundle.min.js?ver=0.0.60"
+			id="OknaMobifon-script-js"
+			defer="defer"
+			data-wp-strategy="defer"
+		></script> -->
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+
 
 	<script>
-		if (window.location.pathname.includes('/промо')) {
-			const scriptTags = document.querySelectorAll('script[src*="OknaMobifon"]');
-			scriptTags.forEach(el => el.remove());
+		// Функция для закрытия сообщения
+		function f1() {
+			const backgroundMsg = document.getElementById('background-msg');
+			const messageContainer = backgroundMsg ? backgroundMsg.parentElement : null;
+
+			if (messageContainer) {
+				messageContainer.style.display = 'none';
+			}
 		}
+
+		// Автоматически закрываем сообщение через 10 секунд
+		document.addEventListener('DOMContentLoaded', function () {
+			const messageContainer = document.querySelector('div[onclick="f1();"]');
+			if (messageContainer && messageContainer.style.display === 'block') {
+				setTimeout(function () {
+					f1();
+				}, 10000); // 10 секунд
+			}
+		});
+
+		document.addEventListener('DOMContentLoaded', function () {
+			// Массив всех полей телефонов
+			const phoneInputs = [
+				'feedback-modal-phone',
+				'feedback-callback-phone',
+				'feedback-consultation-phone',
+				'feedback-phone4',
+				'feedback-phone',
+				'feedback-estimate-phone'
+			];
+
+			phoneInputs.forEach(function (inputId) {
+				const phoneInput = document.getElementById(inputId);
+				if (phoneInput) {
+					setupPhoneMask(phoneInput);
+				}
+			});
+
+			function setupPhoneMask(phoneInput) {
+				phoneInput.addEventListener('input', function (e) {
+					let value = e.target.value.replace(/\D/g, '');
+
+					if (value.length > 0) {
+						if (value[0] === '8') {
+							value = '8' + value.substring(1);
+						} else if (value[0] === '7') {
+							value = '+7' + value.substring(1);
+						} else if (value.length >= 10) {
+							value = '+7' + value;
+						}
+
+						if (value.startsWith('+7') && value.length >= 5) {
+							value = value.replace(
+								/(\+7)(\d{3})(\d{3})(\d{2})(\d{2})/,
+								'$1 ($2) $3-$4-$5',
+							);
+						} else if (value.startsWith('8') && value.length >= 4) {
+							value = value.replace(
+								/8(\d{3})(\d{3})(\d{2})(\d{2})/,
+								'8 ($1) $2-$3-$4',
+							);
+						}
+					}
+					e.target.value = value;
+				});
+
+				phoneInput.addEventListener('focus', function (e) {
+					if (e.target.value === '') {
+						e.target.value = '+7 (';
+					}
+				});
+			}
+		});
 	</script>
 
+	<!-- Показываем сообщение об успешной отправки -->
+	<div style="display: <?php echo $display; ?>;" onclick="f1();">
+		<!-- Присваиваем свойству display значение переменной $display -->
+		<div id="background-msg" style="display: <?php echo $display; ?>;"></div> <!-- Показываем background -->
+		<!-- Показываем сообщение об успешной отправке данных -->
+		<div id="message">
+			<?php echo $_SESSION['message_text'];
+			unset($_SESSION['message_text']); ?>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			// Отслеживание кнопок для модального окна обратного звонка
+			const modalButtons = document.querySelectorAll('[data-bs-target="#feedback-modal"]');
+
+			modalButtons.forEach(function (button) {
+				button.addEventListener('click', function () {
+					const context = this.getAttribute('data-context');
+					const formSourceInput = document.querySelector('#modal-form-source');
+					const buttonContextInput = document.querySelector('#modal-button-context');
+
+					if (formSourceInput && buttonContextInput && context) {
+						buttonContextInput.value = context;
+
+						// Определяем более точный источник формы
+						if (context.includes('calculate-cost')) {
+							formSourceInput.value = 'modal-calculate-cost';
+						} else if (context.includes('service-')) {
+							formSourceInput.value = 'modal-service-request';
+						} else if (context.includes('header-')) {
+							formSourceInput.value = 'modal-header-request';
+						} else if (context.includes('mobile-')) {
+							formSourceInput.value = 'modal-mobile-request';
+						} else {
+							formSourceInput.value = 'modal-callback';
+						}
+					}
+				});
+			});
+
+			// Отслеживание кнопок плавающего меню
+			const callbackButtons = document.querySelectorAll('.callback-form-button a, .callback-phone-button a, .callback-whatsapp-button a, .callback-telegram-button a');
+
+			callbackButtons.forEach(function (button) {
+				button.addEventListener('click', function () {
+					const buttonClass = this.closest('[class*="callback-"]').className;
+					let context = 'floating-menu-unknown';
+
+					if (buttonClass.includes('callback-form-button')) {
+						context = 'floating-menu-callback-form';
+						// Если это модальная форма, установим контекст
+						setTimeout(() => {
+							const formSourceInput = document.querySelector('#modal-form-source');
+							const buttonContextInput = document.querySelector('#modal-button-context');
+							if (formSourceInput && buttonContextInput) {
+								formSourceInput.value = 'modal-floating-menu';
+								buttonContextInput.value = context;
+							}
+						}, 100);
+					} else if (buttonClass.includes('callback-phone-button')) {
+						context = 'floating-menu-direct-call';
+					} else if (buttonClass.includes('callback-whatsapp-button')) {
+						context = 'floating-menu-whatsapp';
+					} else if (buttonClass.includes('callback-telegram-button')) {
+						context = 'floating-menu-telegram';
+					}
+
+					console.log('Floating menu action:', context);
+				});
+			});
+		});
+	</script>
 </body>
 
 </html>
