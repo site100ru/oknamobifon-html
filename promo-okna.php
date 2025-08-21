@@ -2953,57 +2953,6 @@ if (isset($_SESSION['win'])) {
 						}
 					});
 				}
-
-				// Обработчик отправки формы
-				form.addEventListener('submit', function (e) {
-					e.preventDefault();
-
-					// Показываем лоадер
-					if (loader) {
-						loader.style.display = 'flex';
-					}
-
-					// Блокируем кнопку отправки
-					const submitBtn = form.querySelector('button[type="submit"]');
-					const originalText = submitBtn.innerHTML;
-					if (submitBtn) {
-						submitBtn.disabled = true;
-						submitBtn.innerHTML = 'Отправка...';
-					}
-
-					// Создаем FormData
-					const formData = new FormData(form);
-
-					// Отправляем форму
-					fetch('<?php echo get_template_directory_uri(); ?>/promo/mails/callback_handler.php', {
-						method: 'POST',
-						body: formData,
-					})
-						.then((response) => {
-							if (response.ok) {
-								// Перезагружаем страницу для показа сообщения
-								window.location.reload();
-							} else {
-								throw new Error('Ошибка сервера');
-							}
-						})
-						.catch((error) => {
-							console.error('Ошибка:', error);
-							alert('Произошла ошибка при отправке формы. Попробуйте еще раз.');
-						})
-						.finally(() => {
-							// Скрываем лоадер
-							if (loader) {
-								loader.style.display = 'none';
-							}
-
-							// Разблокируем кнопку
-							if (submitBtn) {
-								submitBtn.disabled = false;
-								submitBtn.innerHTML = originalText;
-							}
-						});
-				});
 			});
 		</script>
 	</main>
