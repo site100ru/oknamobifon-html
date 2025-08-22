@@ -3344,7 +3344,7 @@ if (isset($_SESSION['win'])) {
 				document.getElementById('btnIco').style.transform = 'rotate(180deg)';
 
 				document.getElementById('btnIco').style.backgroundImage =
-					'url(https://site100ru.github.io/oknamobifon-html/assets/img/icons/callback-button-close.png)';
+					'url("//oknamobifon.ru/wp-content/themes/oknamobifon/promo/css/../img/icons/callback-button-close.png")';
 				document.getElementById('btnIco').style.backgroundPosition = 'center';
 				document.getElementById('btnIco').style.backgroundRepeat = 'no-repeat';
 
@@ -3374,7 +3374,7 @@ if (isset($_SESSION['win'])) {
 				document.getElementById('btnIco').style.transform = 'rotate(180deg)';
 				document.getElementById('btnIco').style.webkitTransform = 'rotate(180deg)';
 				document.getElementById('btnIco').style.backgroundImage =
-					'url(https://site100ru.github.io/oknamobifon-html/assets/img/icons/callback-button-ico.png)';
+					'url("//oknamobifon.ru/wp-content/themes/oknamobifon/promo/css/../img/icons/callback-button-close.png")';
 				document.getElementById('btnIco').style.backgroundPosition = 'center';
 				document.getElementById('btnIco').style.backgroundRepeat = 'no-repeat';
 
