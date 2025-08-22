@@ -28,7 +28,27 @@ if (isset($_SESSION['win'])) {
 		href="/wp-content/themes/oknamobifon/assets/favicon/apple-touch-icon.png" />
 	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 	<!-- This site is optimized with the Yoast SEO plugin v25.2 - https://yoast.com/wordpress/plugins/seo/ -->
-	<title>Входные двери. Изготовление и монтаж деревянных и пластиковых окон в Москве</title>
+	<title>Акции на окна ПВХ - скидки на остекление в Москве | ОкнаМобифон</title>
+	<meta name="description"
+		content="Выгодные акции на пластиковые окна ПВХ, остекление балконов и лоджий. Скидки, рассрочка без процентов. Качественная установка с гарантией. Звоните: +7 (495) 646-49-59" />
+
+	<meta name="keywords"
+		content="акции на окна, скидки на окна пвх, акции остекление балконов, окна со скидкой москва, рассрочка на окна, выгодные предложения окна" />
+
+	<link rel="canonical" href="https://oknamobifon.ru/promo-okna/" />
+
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Акции на окна ПВХ - скидки на остекление в Москве">
+	<meta property="og:description" content="Выгодные акции на пластиковые окна ПВХ, остекление балконов и лоджий. Скидки, рассрочка без процентов. Качественная установка с гарантией 5 лет.">
+	<meta property="og:url" content="https://www.oknamobifon.ru/promo-okna/">
+	<meta property="og:site_name" content="ОкнаМобифон">
+	<meta property="article:modified_time" content="2025-06-04T19:40:22+00:00">
+	<meta property="og:image" content="https://www.oknamobifon.ru/wp-content/uploads/2025/05/woman.jpg">
+	<meta property="og:image:width" content="1280">
+	<meta property="og:image:height" content="768">
+	<meta property="og:image:type" content="image/jpeg">
+
 	<!-- <link
 			rel="stylesheet"
 			id="wp-block-library-css"
@@ -447,8 +467,8 @@ if (isset($_SESSION['win'])) {
 								alt="rehau" />
 							<div class="card-body text-center px-0">
 								<h5 class="card-title">Rehau</h5>
-								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Stars.svg"
-									class="mb-2 img-fluid" alt="5 звезд" />
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Stars.svg" class="mb-2 img-fluid"
+									alt="5 звезд" />
 
 								<p class="card-text card-price">
 									От <span>9&nbsp;940</span> руб/м<sup>2</sup>
@@ -467,8 +487,8 @@ if (isset($_SESSION['win'])) {
 								alt="KBE" />
 							<div class="card-body text-center px-0">
 								<h5 class="card-title">KBE</h5>
-								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Stars.svg"
-									class="mb-2 img-fluid" alt="5 звезд" />
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Stars.svg" class="mb-2 img-fluid"
+									alt="5 звезд" />
 
 								<p class="card-text card-price">
 									От <span>9&nbsp;040</span> руб/м<sup>2</sup>
@@ -487,8 +507,8 @@ if (isset($_SESSION['win'])) {
 								alt="Novotex" />
 							<div class="card-body text-center px-0">
 								<h5 class="card-title">Novotex</h5>
-								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Stars.svg"
-									class="mb-2 img-fluid" alt="5 звезд" />
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Stars.svg" class="mb-2 img-fluid"
+									alt="5 звезд" />
 
 								<p class="card-text card-price">
 									От <span>8&nbsp;240</span> руб/м<sup>2</sup>
@@ -507,8 +527,8 @@ if (isset($_SESSION['win'])) {
 								alt="Provedal" />
 							<div class="card-body text-center px-0">
 								<h5 class="card-title">Provedal</h5>
-								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Stars.svg"
-									class="mb-2 img-fluid" alt="5 звезд" />
+								<img src="<?php echo get_template_directory_uri(); ?>/promo/img/stocks/Stars.svg" class="mb-2 img-fluid"
+									alt="5 звезд" />
 
 								<p class="card-text card-price">
 									От <span>6&nbsp;040</span> руб/м<sup>2</sup>
@@ -2853,8 +2873,8 @@ if (isset($_SESSION['win'])) {
 								<p class="section__subtitle">
 									Получите бесплатную консультацию у нашиx специалистов
 								</p>
-								<form action="<?php echo get_template_directory_uri(); ?>/promo/mails/callback_handler.php" id="callback"
-									method="post" name="callback" class="form" style="max-width: 600px">
+								<form action="<?php echo get_template_directory_uri(); ?>/promo/mails/callback_handler.php"
+									id="callback" method="post" name="callback" class="form" style="max-width: 600px">
 									<div class="loader-box"><span class="loader"></span></div>
 
 									<input type="hidden" name="form-source" value="footer-callback">
@@ -3032,8 +3052,8 @@ if (isset($_SESSION['win'])) {
 				<div class="modal-body">
 					<h2>Мы Вам перезвоним</h2>
 
-					<form action="<?php echo get_template_directory_uri(); ?>/promo/mails/callback_handler.php" id="feedback-modal-form"
-						method="post" name="feedback" class="form">
+					<form action="<?php echo get_template_directory_uri(); ?>/promo/mails/callback_handler.php"
+						id="feedback-modal-form" method="post" name="feedback" class="form">
 						<div class="loader-box"><span class="loader"></span></div>
 
 						<input type="hidden" name="form-source" value="modal-callback" id="modal-form-source">
