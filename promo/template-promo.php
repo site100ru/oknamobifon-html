@@ -2672,6 +2672,20 @@ if (isset($_SESSION['win'])) {
 									https://oknamobifon.ru/wp-content/uploads/2025/03/ddf73e20fe44dea2cda5fd73c87ee1f0.jpg         412w
 								" sizes="(max-width: 300px) 100vw, 300px" />
 					</a>
+					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/05ea702bd87a631ffd67f744f1e968f8.jpg"
+						target="_blank" data-pswp-width="480" data-pswp-height="360" class="gallery-grid__item">
+						<img width="300" height="225"
+							src="https://oknamobifon.ru/wp-content/uploads/2025/03/05ea702bd87a631ffd67f744f1e968f8-300x225.jpg"
+							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async"
+							srcset="https://oknamobifon.ru/wp-content/uploads/2025/03/05ea702bd87a631ffd67f744f1e968f8-300x225.jpg 300w, https://oknamobifon.ru/wp-content/uploads/2025/03/05ea702bd87a631ffd67f744f1e968f8.jpg 480w"
+							sizes="(max-width: 300px) 100vw, 300px"> </a>
+					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/47b7c2ff997fe6f04ea6d2fa8c5433a6.jpg"
+						target="_blank" data-pswp-width="480" data-pswp-height="360" class="gallery-grid__item">
+						<img width="300" height="225"
+							src="https://oknamobifon.ru/wp-content/uploads/2025/03/47b7c2ff997fe6f04ea6d2fa8c5433a6-300x225.jpg"
+							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async"
+							srcset="https://oknamobifon.ru/wp-content/uploads/2025/03/47b7c2ff997fe6f04ea6d2fa8c5433a6-300x225.jpg 300w, https://oknamobifon.ru/wp-content/uploads/2025/03/47b7c2ff997fe6f04ea6d2fa8c5433a6.jpg 480w"
+							sizes="(max-width: 300px) 100vw, 300px"> </a>
 				</div>
 			</div>
 		</section>
