@@ -40,7 +40,8 @@ if (isset($_SESSION['win'])) {
 	<meta property="og:locale" content="ru_RU">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="Акции на окна ПВХ - скидки на остекление в Москве">
-	<meta property="og:description" content="Выгодные акции на пластиковые окна ПВХ, остекление балконов и лоджий. Скидки, рассрочка без процентов. Качественная установка с гарантией 5 лет.">
+	<meta property="og:description"
+		content="Выгодные акции на пластиковые окна ПВХ, остекление балконов и лоджий. Скидки, рассрочка без процентов. Качественная установка с гарантией 5 лет.">
 	<meta property="og:url" content="https://www.oknamobifon.ru/promo-okna/">
 	<meta property="og:site_name" content="ОкнаМобифон">
 	<meta property="article:modified_time" content="2025-06-04T19:40:22+00:00">
@@ -2408,15 +2409,6 @@ if (isset($_SESSION['win'])) {
 									https://oknamobifon.ru/wp-content/uploads/2025/03/dd9fda5d2b702091455f0b8181e01e19-1.jpg         427w
 								" sizes="(max-width: 200px) 100vw, 200px" />
 					</a>
-					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/66ffb687fe97500cf9849f7ca7a3b241.jpg"
-						target="_blank" data-pswp-width="361" data-pswp-height="480" class="gallery-grid__item">
-						<img width="226" height="300"
-							src="https://oknamobifon.ru/wp-content/uploads/2025/03/66ffb687fe97500cf9849f7ca7a3b241-226x300.jpg"
-							class="attachment-medium size-medium" alt="" loading="lazy" decoding="async" srcset="
-									https://oknamobifon.ru/wp-content/uploads/2025/03/66ffb687fe97500cf9849f7ca7a3b241-226x300.jpg 226w,
-									https://oknamobifon.ru/wp-content/uploads/2025/03/66ffb687fe97500cf9849f7ca7a3b241.jpg         361w
-								" sizes="(max-width: 226px) 100vw, 226px" />
-					</a>
 					<a href="https://oknamobifon.ru/wp-content/uploads/2025/03/6bbff4e5b4214357a1a1c73cf176c8db.jpg"
 						target="_blank" data-pswp-width="360" data-pswp-height="480" class="gallery-grid__item">
 						<img width="225" height="300"
@@ -3399,96 +3391,12 @@ if (isset($_SESSION['win'])) {
 
 	<script src="<?php echo get_template_directory_uri(); ?>/promo/js/quize.js"></script>
 
-	<!-- <script src="assets/js/Accordion.js"></script>
+	<!-- <script src="assets/js/Accordion.js"></script>-->
+	<!-- 
+	<script type="text/javascript"
+		src="https://oknamobifon.ru/wp-content/themes/oknamobifon/assets/js/main.bundle.min.js?ver=0.0.60"
+		id="OknaMobifon-script-js" defer="defer" data-wp-strategy="defer"></script> -->
 
-		<script
-			type="text/javascript"
-			src="https://oknamobifon.ru/wp-content/themes/oknamobifon/assets/js/main.bundle.min.js?ver=0.0.60"
-			id="OknaMobifon-script-js"
-			defer="defer"
-			data-wp-strategy="defer"
-		></script> -->
-
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
-
-
-	<script>
-		// Функция для закрытия сообщения
-		function f1() {
-			const backgroundMsg = document.getElementById('background-msg');
-			const messageContainer = backgroundMsg ? backgroundMsg.parentElement : null;
-
-			if (messageContainer) {
-				messageContainer.style.display = 'none';
-			}
-		}
-
-		// Автоматически закрываем сообщение через 10 секунд
-		document.addEventListener('DOMContentLoaded', function () {
-			const messageContainer = document.querySelector('div[onclick="f1();"]');
-			if (messageContainer && messageContainer.style.display === 'block') {
-				setTimeout(function () {
-					f1();
-				}, 10000); // 10 секунд
-			}
-		});
-
-		document.addEventListener('DOMContentLoaded', function () {
-			// Массив всех полей телефонов
-			const phoneInputs = [
-				'feedback-modal-phone',
-				'feedback-callback-phone',
-				'feedback-consultation-phone',
-				'feedback-phone4',
-				'feedback-phone',
-				'feedback-estimate-phone'
-			];
-
-			phoneInputs.forEach(function (inputId) {
-				const phoneInput = document.getElementById(inputId);
-				if (phoneInput) {
-					setupPhoneMask(phoneInput);
-				}
-			});
-
-			function setupPhoneMask(phoneInput) {
-				phoneInput.addEventListener('input', function (e) {
-					let value = e.target.value.replace(/\D/g, '');
-
-					if (value.length > 0) {
-						if (value[0] === '8') {
-							value = '8' + value.substring(1);
-						} else if (value[0] === '7') {
-							value = '+7' + value.substring(1);
-						} else if (value.length >= 10) {
-							value = '+7' + value;
-						}
-
-						if (value.startsWith('+7') && value.length >= 5) {
-							value = value.replace(
-								/(\+7)(\d{3})(\d{3})(\d{2})(\d{2})/,
-								'$1 ($2) $3-$4-$5',
-							);
-						} else if (value.startsWith('8') && value.length >= 4) {
-							value = value.replace(
-								/8(\d{3})(\d{3})(\d{2})(\d{2})/,
-								'8 ($1) $2-$3-$4',
-							);
-						}
-					}
-					e.target.value = value;
-				});
-
-				phoneInput.addEventListener('focus', function (e) {
-					if (e.target.value === '') {
-						e.target.value = '+7 (';
-					}
-				});
-			}
-		});
-	</script>
 
 	<!-- Показываем сообщение об успешной отправки -->
 	<div style="display: <?php echo $display; ?>;" onclick="f1();">
@@ -3563,6 +3471,213 @@ if (isset($_SESSION['win'])) {
 			});
 		});
 	</script>
+
+	<script>
+
+		document.addEventListener('DOMContentLoaded', function () {
+			import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.2/dist/photoswipe.esm.min.js')
+				.then(({ default: PhotoSwipe }) => {
+
+					class PhotoSwipeGallery {
+						constructor(options) {
+							this.options = options || {};
+							this._uid = 0;
+							this.shouldOpen = false;
+							this._preloadedContent = undefined;
+							this.onThumbnailsClick = this.onThumbnailsClick.bind(this);
+						}
+
+						init() {
+							const galleries = document.querySelectorAll(this.options.gallery);
+							galleries.forEach((gallery) => {
+								gallery.addEventListener("click", this.onThumbnailsClick, false);
+							});
+						}
+
+						onThumbnailsClick(event) {
+							if (this.isClickToIgnore(event) || window.pswp) return;
+
+							let clickPoint = { x: event.clientX, y: event.clientY };
+							if (!clickPoint.x && !clickPoint.y) clickPoint = null;
+
+							let clickedIndex = this.getClickedIndex(event);
+							const galleryData = { gallery: event.currentTarget };
+
+							if (clickedIndex >= 0) {
+								event.preventDefault();
+								this.loadAndOpen(clickedIndex, galleryData, clickPoint);
+							}
+						}
+
+						isClickToIgnore(event) {
+							return ("button" in event && event.button === 1) ||
+								event.ctrlKey || event.metaKey || event.altKey || event.shiftKey;
+						}
+
+						getClickedIndex(event) {
+							const target = event.target;
+							const gallery = event.currentTarget;
+
+							const items = Array.from(gallery.querySelectorAll(this.options.children));
+
+							const clickedItem = items.find(item =>
+								item === target || item.contains(target)
+							);
+
+							return clickedItem ? items.indexOf(clickedItem) : -1;
+						}
+
+						loadAndOpen(index, galleryData, clickPoint) {
+							if (window.pswp || !this.options) return false;
+
+							this.options.index = index;
+							this.options.initialPointerPos = clickPoint;
+							this.shouldOpen = true;
+							this.preload(index, galleryData);
+							return true;
+						}
+
+						preload(index, galleryData) {
+							if (galleryData) {
+								this.options.dataSource = galleryData;
+							}
+
+							const uid = ++this._uid;
+
+							this._openPhotoswipe(PhotoSwipe, uid);
+						}
+
+						_openPhotoswipe(PhotoSwipeClass, uid) {
+							if (uid !== this._uid || !this.shouldOpen) return;
+
+							this.shouldOpen = false;
+
+							if (window.pswp) return;
+
+							const options = this._prepareOptions();
+
+							const pswp = new PhotoSwipeClass(options);
+							this.pswp = pswp;
+							window.pswp = pswp;
+
+							pswp.on('destroy', () => {
+								this.pswp = undefined;
+								delete window.pswp;
+							});
+
+							pswp.init();
+						}
+
+						_prepareOptions() {
+							const gallery = this.options.dataSource.gallery;
+							const items = this._getGalleryItems(gallery);
+
+							return {
+								dataSource: items,
+								index: this.options.index || 0,
+
+								allowPanToNext: true,
+								spacing: 0.1,
+								loop: true,
+								pinchToClose: true,
+								closeOnVerticalDrag: true,
+								hideAnimationDuration: 333,
+								showAnimationDuration: 333,
+								zoomAnimationDuration: 333,
+								escKey: true,
+								arrowKeys: true,
+								trapFocus: true,
+								returnFocus: true,
+								maxWidthToAnimate: 4000,
+								clickToCloseNonZoomable: true,
+								imageClickAction: "zoom-or-close",
+								bgClickAction: "close",
+								tapAction: "toggle-controls",
+								doubleTapAction: "zoom",
+								indexIndicatorSep: " / ",
+								preloaderDelay: 2000,
+								bgOpacity: 0.8,
+								preload: [1, 2],
+								easing: "cubic-bezier(.4,0,.22,1)"
+							};
+						}
+
+						_getGalleryItems(gallery) {
+							const items = Array.from(gallery.querySelectorAll(this.options.children));
+
+							return items.map(item => {
+								return this._domElementToItemData(item);
+							});
+						}
+
+						_domElementToItemData(element) {
+							const itemData = { element: element };
+							const linkEl = element.tagName === "A" ? element : element.querySelector("a");
+
+							if (linkEl) {
+								itemData.src = linkEl.dataset.pswpSrc || linkEl.href;
+
+								if (linkEl.dataset.pswpSrcset) {
+									itemData.srcset = linkEl.dataset.pswpSrcset;
+								}
+
+								itemData.width = linkEl.dataset.pswpWidth
+									? parseInt(linkEl.dataset.pswpWidth, 10) : 0;
+								itemData.height = linkEl.dataset.pswpHeight
+									? parseInt(linkEl.dataset.pswpHeight, 10) : 0;
+
+								itemData.w = itemData.width;
+								itemData.h = itemData.height;
+
+								if (linkEl.dataset.pswpType) {
+									itemData.type = linkEl.dataset.pswpType;
+								}
+
+								const imgEl = element.querySelector("img");
+								if (imgEl) {
+									itemData.msrc = imgEl.currentSrc || imgEl.src;
+									itemData.alt = imgEl.getAttribute("alt") || "";
+								}
+
+								if (linkEl.dataset.pswpCropped || linkEl.dataset.cropped) {
+									itemData.thumbCropped = true;
+								}
+							}
+
+							return itemData;
+						}
+
+						destroy() {
+							if (this.pswp) {
+								this.pswp.destroy();
+								this.pswp = undefined;
+							}
+
+							this.shouldOpen = false;
+							this._listeners = {};
+
+							const galleries = document.querySelectorAll(this.options.gallery);
+							galleries.forEach((gallery) => {
+								gallery.removeEventListener("click", this.onThumbnailsClick, false);
+							});
+						}
+					}
+
+					new PhotoSwipeGallery({
+						gallery: ".gallery-grid",
+						children: ".gallery-grid__item",
+						pswpModule: PhotoSwipe
+					}).init();
+
+					new PhotoSwipeGallery({
+						gallery: ".gallery",
+						children: ".gallery__item",
+						pswpModule: PhotoSwipe
+					}).init();
+				});
+		});
+	</script>
+
 </body>
 
 </html>
