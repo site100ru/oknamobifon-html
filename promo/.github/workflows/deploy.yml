@@ -1,0 +1,25 @@
+name: Deploy oknamobifon.ru/promo-okna
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Connect to server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.OKNAMOBIFON_HOST }}
+          username: ${{ secrets.OKNAMOBIFON_USER }}
+          key: ${{ secrets.OKNAMOBIFON_KEY }}
+          script: |
+
+            # For first deploy
+            # cd /var/www/u1079678/data/www/oknamobifon.ru/wp-content/themes/oknamobifon/promo
+            # git clone git@github.com:site100ru/oknamobifon-html.git .
+            
+            # For next deploys
+            # cd /var/www/u1079678/data/www/oknamobifon.ru/wp-content/themes/oknamobifon/promo
+            # git pull
