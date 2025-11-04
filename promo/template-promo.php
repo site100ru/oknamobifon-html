@@ -1855,28 +1855,7 @@ if (isset($_SESSION['win'])) {
 			</div>
 		</section>
 
-		<section id="stocks" class="archive-portfolio-section archive-portfolio bg-white pb-5">
-			<div class="container">
-				<h2 class="section__title section-uso__title">Наши <span>акции</span></h2>
-
-				<div class="row">
-					<div class="col-md-8">
-						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-1.jpg"
-							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Скидки до 25% до 31 августа" />
-					</div>
-					<div class="col-md-8">
-						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-2.jpg"
-							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Скидки до 50% до 31 декабря" />
-					</div>
-					<div class="col-md-8">
-						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-3.jpg"
-							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Рассрочка на 1 год до 30 сентября" />
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="section section-promo-products section-quality bg-light">
+        <section class="section section-promo-products section-quality bg-white pb-5">
 			<div class="container">
 				<h2 class="section__title section-uso__title">Установка <span>окон</span></h2>
 				<p class="section__subtitle section-products__subtitle mb-5"
@@ -1953,6 +1932,263 @@ if (isset($_SESSION['win'])) {
 				</div>
 			</div>
 		</section>
+
+		<section id="stocks" class="archive-portfolio-section archive-portfolio bg-light py-5">
+			<div class="container">
+				<h2 class="section__title section-uso__title">Акции и скидки <span>от нашей компании</span></h2>
+
+				<div class="row">
+					<div class="col-md-8">
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-1.jpg"
+							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Скидки до 25% до 31 августа" />
+					</div>
+					<div class="col-md-8">
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-2.jpg"
+							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Скидки до 50% до 31 декабря" />
+					</div>
+					<div class="col-md-8">
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-3.jpg"
+							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Рассрочка на 1 год до 30 сентября" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+        <section class="section section-how bg-grey py-5">
+            <div class="container">
+                <h2 class="section__title section-uso__title">Как мы <span>работаем</span></h2>
+
+                <div class="row mx-auto">
+                    <div class="col-sm-12 col-xl-4 mb-4 mb-lg-0">
+                        <div class="row align-items-center">
+                            <div class="col-12 text-center">
+                                <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/1.svg" alt="Шаг" class="img-fluid">
+                            </div>
+                            <div class="col-12">
+                                <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/process-ico-1.svg" alt="Процесс" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col text-start">
+                                <p class="mb-0" >Свяжитесь с нами любым удобным для Вас способом или оставьте заявку на сайте.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-4 mb-4 mb-lg-0">
+                        <div class="row align-items-center">
+                            <div class="col-12 text-center">
+                                <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/2.svg" alt="Шаг" class="img-fluid">
+                            </div>
+                            <div class="col-12">
+                                <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/process-ico-2.svg" alt="Процесс" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col text-start">
+                                <p class="mb-0" >Рассчитаем предварительную стоимость за 15 минут.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-4 mb-4 mb-lg-0">
+                        <div class="row align-items-center">
+                            <div class="col-12 text-center">
+                                <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/3.svg" alt="Шаг" class="img-fluid">
+                            </div>
+                            <div class="col-12">
+                                <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/process-ico-3.svg" alt="Процесс" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col text-start">
+                                <p class="mb-0" >Если цена устраивает, то <b>бесплатно</b> приезжает замерщик для составления точной сметы.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-4 mb-4 mb-lg-0">
+                        <div class="row align-items-center">
+                            <div class="col-12 text-center">
+                                <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/4.svg" alt="Шаг" class="img-fluid">
+                            </div>
+                            <div class="col-12">
+                                <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/process-ico-4.svg" alt="Процесс" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col text-start">
+                                <p class="mb-0" >Если все устраивает, то заключаем договор.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-4 mb-4 mb-lg-0">
+                        <div class="row align-items-center">
+                            <div class="col-12 text-center">
+                                <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/5.svg" alt="Шаг" class="img-fluid">
+                            </div>
+                            <div class="col-12">
+                                <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/process-ico-5.svg" alt="Процесс" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col text-start">
+                                <p class="mb-0" >Изготовляем окна от 7&nbsp;дней!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-4 mb-0">
+                        <div class="row align-items-center">
+                            <div class="col-12 text-center">
+                                <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/6.svg" alt="Шаг" class="img-fluid">
+                            </div>
+                            <div class="col-12">
+                                <img decoding="async" src="<?php echo get_template_directory_uri(); ?>/promo/img/SVG/process-ico-6.svg" alt="Процесс" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col text-start">
+                                <p class="mb-0" >Доставляем и устанавливаем <b>одним&nbsp;днем!</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-how bg-light  py-5">
+            <div class="container">
+                <header class="section__header">
+					<div>
+						<h2 class="section__title section-uso__title">
+							Сделайте свои окна 
+							<span>еще лучше!</span>
+						</h2>
+
+						<p class="section__subtitle">
+							Используйте возможности окна по полной — дополните его удобным функционалом!
+						</p>
+					</div>
+				</header>
+
+                <div class="d-flex flex-wrap row">
+                    <div class="col-sm-12 col-xl-6 mb-4">
+                        <button data-button-context="child-lock" data-bs-toggle="modal" data-bs-target="#feedback-modal" aria-label="Оставить заявку" class="card-link card-link-windows">
+                            <div class="image-wrapper">
+                                <img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/windows-better-8.jpg"
+                                    alt="Детский замок" class="card-image">
+                                <div class="image-text">Детский замок</div>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description">Безопасность Ваших детей у окна.</p>
+                                <div class="btn btn-primary btn-cta">Оставить заявку </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-sm-12 col-xl-6 mb-4">
+                        <button data-button-context="anti-burglary-hardware" data-bs-toggle="modal" data-bs-target="#feedback-modal" aria-label="Оставить заявку" class="card-link card-link-windows">
+                            <div class="image-wrapper">
+                                <img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/windows-better-7.jpg"
+                                    alt="Противовзломная фурнитура" class="card-image">
+                                <div class="image-text">Противовзломная фурнитура</div>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description">Защитит от проникновения злоумышленников.</p>
+                                <div class="btn btn-primary btn-cta">Оставить заявку </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-sm-12 col-xl-6 mb-4">
+                        <button data-button-context="step-ventilation" data-bs-toggle="modal" data-bs-target="#feedback-modal" aria-label="Оставить заявку" class="card-link card-link-windows">
+                            <div class="image-wrapper">
+                                <img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/windows-better-6.jpg"
+                                    alt="Ступенчатое проветривание" class="card-image">
+                                <div class="image-text">Ступенчатое проветривание</div>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description">Регулировка уровня проветривания до комфортного.</p>
+                                <div class="btn btn-primary btn-cta">Оставить заявку </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-sm-12 col-xl-6 mb-4">
+                        <button data-button-context="hidden-hinges" data-bs-toggle="modal" data-bs-target="#feedback-modal" aria-label="Оставить заявку" class="card-link card-link-windows">
+                            <div class="image-wrapper">
+                                <img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/windows-better-5.jpg"
+                                    alt="Скрытые петли" class="card-image">
+                                <div class="image-text">Скрытые петли</div>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description">Придают окну более эстетичный вид.</p>
+                                <div class="btn btn-primary btn-cta">Оставить заявку </div>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <div class="col-sm-12 col-xl-6 mb-4">
+                        <button  data-button-context="window-sills" data-bs-toggle="modal" data-bs-target="#feedback-modal" aria-label="Оставить заявку" class="card-link card-link-windows">
+                            <div class="image-wrapper">
+                                <img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/windows-better-4.jpg"
+                                    alt="Подоконники для окон" class="card-image">
+                                <div class="image-text">Подоконники для окон</div>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description">Дополнительное удобство и возможность полноценно использовать каждый сантиметр пространства.</p>
+                                <div class="btn btn-primary btn-cta">Оставить заявку </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-sm-12 col-xl-6 mb-4">
+                        <button data-button-context="slope-finishing" data-bs-toggle="modal" data-bs-target="#feedback-modal" aria-label="Оставить заявку" class="card-link card-link-windows">
+                            <div class="image-wrapper">
+                                <img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/windows-better-3.jpg"
+                                    alt="Отделка откосов" class="card-image">
+                                <div class="image-text">Отделка откосов</div>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description">Утеплённые откосы из сандвич-панелей — красивый и стильный вид окна.</p>
+                                <div class="btn btn-primary btn-cta">Оставить заявку </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-sm-12 col-xl-6 mb-4">
+                        <button  data-button-context="glass-unit-replacement" data-bs-toggle="modal" data-bs-target="#feedback-modal" aria-label="Оставить заявку" class="card-link card-link-windows">
+                            <div class="image-wrapper">
+                                <img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/windows-better-2.jpg"
+                                    alt="Замена стеклопакета" class="card-image">
+                                <div class="image-text">Замена стеклопакета</div>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description">Повышенные свойства тепло и звуко изоляции Ваших окон.</p>
+                                <div class="btn btn-primary btn-cta">Оставить заявку </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="col-sm-12 col-xl-6 mb-4">
+                        <button data-button-context="remote-ventilation" data-bs-toggle="modal" data-bs-target="#feedback-modal" aria-label="Оставить заявку" class="card-link card-link-windows">
+                            <div class="image-wrapper">
+                                <img src="<?php echo get_template_directory_uri(); ?>/promo/img/windows/windows-better-1.jpg"
+                                    alt="Дистанционное проветривание" class="card-image">
+                                <div class="image-text">Дистанционное проветривание</div>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description">Открытие окна не только механически, но и за счёт радиоуправления.</p>
+                                <div class="btn btn-primary btn-cta"  >Оставить заявку </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <p class="section__subtitle mb-0"><b>Не нашли нужной функции?</b></p>
+                    <p class="section__subtitle mb-0">Оставьте заявку, мы обязательно Вам поможем!</p>
+                    <div class="section-hero__cta fade-in-right">
+                        <button class="btn btn-primary btn-cta" data-bs-toggle="modal" data-bs-target="#feedback-modal" aria-label="Оставить заявку" data-context="hero-section-request">
+                            Оставить заявку
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
 
 		<section class="section section-cta">
 			<div class="container">
