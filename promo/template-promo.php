@@ -1939,12 +1939,12 @@ if (isset($_SESSION['win'])) {
 
 				<div class="row">
 					<div class="col-md-8">
-						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-1.jpg"
-							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Скидки до 25% до 31 августа" />
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-4.webp"
+							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Для тех кто ценит качество, фурнитура Roto в наличии" />
 					</div>
 					<div class="col-md-8">
-						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-2.jpg"
-							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Скидки до 50% до 31 декабря" />
+						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-5.webp"
+							class="img-fluid rounded w-100 mb-3 mb-md-0" alt="Сезонное снижение цен -40%, самое время заказать остекление" />
 					</div>
 					<div class="col-md-8">
 						<img src="<?php echo get_template_directory_uri(); ?>/promo/img/action/action-card-3.jpg"
